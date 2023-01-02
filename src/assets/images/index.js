@@ -36,6 +36,8 @@ const images = {
     specialty1: require('./specialty-1.jpg'),
     specialty2: require('./specialty-2.jpg'),
     specialty3: require('./specialty-3.jpg'),
+    loginDeco: require('./login-deco.jpg'),
+    backgroundPattern: require('./background-pattern.png'),
 };
 
 export default images;
