@@ -5,6 +5,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .login-content {
@@ -12,36 +14,38 @@
     max-width: 50%;
     height: 600px;
     transform: translateX(-30%);
-    position: relative;
+    position: absolute;
     background-image: url('../../assets/images/login-deco.jpg');
     background-size: cover;
     border-radius: 5px;
     box-shadow: 1px 1px 2rem 1.25rem rgb(0 0 0 / 25%);
+    animation: fadeIn 2s ease-in forwards;
 }
 
 .login-center {
     color: #fff;
     position: absolute;
     bottom: 5%;
-    width: 50%;
+    width: 60%;
     left: 4%;
 }
 
 .login-form {
     position: absolute;
     top: 50%;
-    right: -60%;
+    left: 50%;
     transform: translateY(-50%);
     background-color: #fff;
     min-height: 400px;
     width: 600px;
-    max-width: 80%;
+    max-width: 40%;
     border-radius: 5px;
     padding: 40px 50px;
     display: flex;
     flex-direction: column;
     row-gap: 30px;
     box-shadow: 1px 1px 2rem 1.25rem rgb(0 0 0 / 25%);
+    animation: flyRightIn 2s ease-in-out forwards;
 }
 
 .form-group-label {
@@ -73,5 +77,23 @@
     cursor: pointer;
     &:hover {
         opacity: 0.8;
+    }
+}
+
+@keyframes flyRightIn {
+    from {
+        transform: translateX(200%) translateY(-50%);
+    }
+    to {
+        transform: translateX(0) translateY(-50%);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

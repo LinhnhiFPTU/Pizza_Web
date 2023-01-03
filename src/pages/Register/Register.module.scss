@@ -1,0 +1,101 @@
+.wrapper {
+    background-color: var(--primary);
+    background-image: url('../../assets/images/background-pattern.png');
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.side-deco {
+    background-color: #fff;
+    width: 50%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(../../assets/images/login-deco.jpg);
+    box-shadow: 1px 1px 2rem 1.25rem rgb(0 0 0 / 25%);
+    animation: flyTopDown 2s ease-in-out forwards;
+}
+
+.register-banner {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    justify-content: center;
+    img {
+        max-width: 95%;
+    }
+}
+
+.register-form {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) translateX(-25%);
+    background-color: #fff;
+    min-height: 400px;
+    width: 600px;
+    max-width: 80%;
+    border-radius: 5px;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    box-shadow: 1px 1px 2rem 1.25rem rgb(0 0 0 / 25%);
+    z-index: 1;
+    animation: flyRightIn 2s ease-in-out forwards;
+}
+
+.form-group-label {
+    display: block;
+    color: #ccc;
+    font-weight: 500;
+    font-size: 1.8rem;
+}
+
+.form-group-input {
+    font-size: 1.8rem;
+    font-weight: 600;
+    border-bottom: 1px solid #ddd;
+    padding: 6px 0px;
+    width: 100%;
+    &:focus {
+        border-bottom: 2px solid var(--primary);
+    }
+}
+
+.form-group-button {
+    background-color: var(--primary);
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    font-size: 1.8rem;
+    box-shadow: 1px 1px 1rem 0.25rem rgb(0 0 0 / 25%);
+    cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+@keyframes flyRightIn {
+    from {
+        margin-right: -100%;
+    }
+    to {
+        margin-right: 0;
+    }
+}
+
+@keyframes flyTopDown {
+    from {
+        margin-top: -100%;
+    }
+    to {
+        margin-top: 0;
+    }
+}

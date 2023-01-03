@@ -1,6 +1,5 @@
 import classNames from 'classnames/bind';
 import styles from './Login.module.scss';
-import images from '../../assets/images';
 import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
@@ -15,36 +14,41 @@ function Login() {
                         restaurants
                     </p>
                 </div>
-                <form className={cx('login-form')}>
-                    <h2 className={cx('form-heading')}>Log in</h2>
-                    <div className={cx('form-group')}>
-                        <label className={cx('form-group-label')}>
-                            Username
-                        </label>
-                        <input className={cx('form-group-input')} type="text" />
-                    </div>
-                    <div className={cx('form-group')}>
-                        <label className={cx('form-group-label')}>E-mail</label>
-                        <input className={cx('form-group-input')} type="text" />
-                    </div>
-                    <div className={cx('form-group')}>
-                        <label className={cx('form-group-label')}>
-                            Password
-                        </label>
-                        <input
-                            className={cx('form-group-input')}
-                            type="password"
-                        />
-                    </div>
-                    <button className={cx('form-group-button')}>Sign In</button>
-                    <div className={cx('form-redirect')}>
-                        <span>New here? </span>
-                        <Link to="register" className={cx('redirect-link')}>
-                            Create one now!
-                        </Link>
-                    </div>
-                </form>
             </div>
+            <form className={cx('login-form')}>
+                <h2 className={cx('form-heading')}>Log in</h2>
+                <div className={cx('form-group')}>
+                    <label className={cx('form-group-label')}>Username</label>
+                    <input
+                        className={cx('form-group-input')}
+                        type="text"
+                        required
+                    />
+                </div>
+                <div className={cx('form-group')}>
+                    <label className={cx('form-group-label')}>E-mail</label>
+                    <input
+                        className={cx('form-group-input')}
+                        type="text"
+                        required
+                    />
+                </div>
+                <div className={cx('form-group')}>
+                    <label className={cx('form-group-label')}>Password</label>
+                    <input
+                        className={cx('form-group-input')}
+                        type="password"
+                        required
+                    />
+                </div>
+                <button className={cx('form-group-button')}>Sign In</button>
+                <div className={cx('form-redirect')}>
+                    <span>New here? </span>
+                    <Link to="/register" className={cx('redirect-link')}>
+                        Create one now!
+                    </Link>
+                </div>
+            </form>
         </div>
     );
 }
