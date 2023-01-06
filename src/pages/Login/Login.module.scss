@@ -11,7 +11,7 @@
 
 .login-content {
     width: 600px;
-    max-width: 50%;
+    max-width: 90%;
     height: 600px;
     transform: translateX(-30%);
     position: absolute;
@@ -33,12 +33,12 @@
 .login-form {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 80%;
     transform: translateY(-50%);
     background-color: #fff;
+    max-width: 90%;
     min-height: 400px;
     width: 600px;
-    max-width: 40%;
     border-radius: 5px;
     padding: 40px 50px;
     display: flex;

@@ -45,3 +45,69 @@ a[href] {
     text-decoration: none;
     color: var(--primary);
 }
+
+.grid {
+    width: 1110px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid__half-width {
+    width: 50%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -16px;
+    margin-right: -16px;
+}
+
+.grid__col {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.relative {
+    position: relative;
+}
+
+.lg-full-width {
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.lg-col-2 {
+    width: 16.6666%;
+}
+
+.lg-col-3 {
+    width: 25%;
+}
+
+.lg-col-4 {
+    width: 33.3333%;
+}
+
+.lg-col-5 {
+    width: 41.6666%;
+}
+
+.lg-col-6 {
+    width: 50%;
+}
+
+.lg-col-10 {
+    width: 83.3333%;
+}
+
+.lg-col-12 {
+    width: 100%;
+}
