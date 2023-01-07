@@ -48,6 +48,13 @@
     box-shadow: 1px 1px 2rem 1.25rem rgb(0 0 0 / 25%);
     z-index: 1;
     animation: flyRightIn 2s ease-in-out forwards;
+
+    a {
+        color: var(--primary);
+        &:hover {
+            color: var(--primary-bold);
+        }
+    }
 }
 
 .form-group-label {

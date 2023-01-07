@@ -38,6 +38,18 @@ const images = {
     specialty3: require('./specialty-3.jpg'),
     loginDeco: require('./login-deco.jpg'),
     backgroundPattern: require('./background-pattern.png'),
+    cheeseIngr: require('./ingredients/cheese-ingr.png'),
+    chilliesIngr: require('./ingredients/chillies-ingr.png'),
+    hamsIngr: require('./ingredients/hams-ingr.png'),
+    hanhIngr: require('./ingredients/hanh-ingr.png'),
+    leaf1Ingr: require('./ingredients/leaf-1-ingr.png'),
+    leaf2Ingr: require('./ingredients/leaf-2-ingr.png'),
+    mushroomIngr: require('./ingredients/mushroom-ingr.png'),
+    onionIngr: require('./ingredients/onion-ingr.png'),
+    pineappleIngr: require('./ingredients/pineapple-ingr.png'),
+    shrimpIngr: require('./ingredients/shrimp-ingr.png'),
+    tomatoIngr: require('./ingredients/tomato-ingr.png'),
+    oliveIngr: require('./ingredients/olive-ingr.png'),
 };
 
 export default images;
