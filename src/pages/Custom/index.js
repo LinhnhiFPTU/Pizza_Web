@@ -6,9 +6,165 @@ import {
     faChevronLeft,
     faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useRef, useState } from 'react';
 const cx = classNames.bind(styles);
 
 function Custom() {
+    const chilliesIngr = useRef();
+    const onionIngr = useRef();
+    const mushroomIngr = useRef();
+    const oliveIngr = useRef();
+    const shrimpIngr = useRef();
+    const hamsIngr = useRef();
+    const pineappleIngr = useRef();
+    const tomatoIngr = useRef();
+    const basilIngr = useRef();
+
+    const [sauce, setSauce] = useState();
+    const [toppings, setToppings] = useState([]);
+    const [vegetables, setVegetables] = useState([]);
+    const [cheeses, setCheeses] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
+
+    // console.log(selectionCheckboxs);
+    useEffect(() => {
+        let newToppings = toppings;
+        newToppings = newToppings.map((tp) => tp.value);
+        let newVegetables = vegetables;
+        newVegetables = newVegetables.map((vg) => vg.value);
+        let newCheeses = cheeses;
+        newCheeses = newCheeses.map((cheese) => cheese.value);
+
+        console.log('Sauce: ' + (sauce ? sauce.value : ''));
+        console.log('Topping: ' + newToppings);
+        console.log('Vegetable: ' + newVegetables);
+        console.log('Cheese: ' + newCheeses);
+    }, [sauce, toppings, vegetables, cheeses]);
+
+    function handleSauceClick(obj) {
+        if (sauce) {
+            sauce.checked = false;
+            calcTotal(sauce);
+            if (sauce.value === obj.value) {
+                setSauce();
+            } else {
+                setSauce(obj);
+                calcTotal(obj);
+            }
+        } else {
+            setSauce(obj);
+            calcTotal(obj);
+        }
+    }
+
+    function handleCheeseClick(obj) {
+        if (!obj.checked) {
+            let newCheeses = cheeses;
+            newCheeses = newCheeses.filter((cheese) => cheese !== obj);
+            setCheeses(newCheeses);
+        } else {
+            setCheeses([...cheeses, obj]);
+        }
+        calcTotal(obj);
+    }
+
+    function handleToppingClick(obj) {
+        if (!obj.checked) {
+            let newToppings = toppings;
+            newToppings = newToppings.filter((topping) => topping !== obj);
+            setToppings(newToppings);
+        } else {
+            setToppings([...toppings, obj]);
+        }
+        handleDisplayTopping(obj);
+        calcTotal(obj);
+    }
+
+    function handleDisplayTopping(topping) {
+        let toppingInf = topping.value.split('-');
+        switch (toppingInf[0]) {
+            case 'hams':
+                hamsIngr.current.style.display = topping.checked
+                    ? 'block'
+                    : 'none';
+                break;
+            case 'shrimp':
+                shrimpIngr.current.style.display = topping.checked
+                    ? 'block'
+                    : 'none';
+                break;
+            case 'pineapple':
+                pineappleIngr.current.style.display = topping.checked
+                    ? 'block'
+                    : 'none';
+                break;
+            default:
+                break;
+        }
+    }
+
+    function handleVegetableClick(obj) {
+        if (!obj.checked) {
+            let newVegetables = vegetables;
+            newVegetables = newVegetables.filter((vege) => vege !== obj);
+            setVegetables(newVegetables);
+        } else {
+            setVegetables([...vegetables, obj]);
+        }
+        handleDisplayVegetable(obj);
+        calcTotal(obj);
+    }
+
+    function handleDisplayVegetable(vegetable) {
+        let vegetableInf = vegetable.value.split('-');
+        console.log(vegetableInf[0] + ' ' + vegetableInf[1]);
+        switch (vegetableInf[0]) {
+            case 'tomato':
+                tomatoIngr.current.style.display = vegetable.checked
+                    ? 'block'
+                    : 'none';
+                break;
+            case 'onion':
+                onionIngr.current.style.display = vegetable.checked
+                    ? 'block'
+                    : 'none';
+                break;
+            case 'mushroom':
+                mushroomIngr.current.style.display = vegetable.checked
+                    ? 'block'
+                    : 'none';
+                break;
+            case 'olive':
+                oliveIngr.current.style.display = vegetable.checked
+                    ? 'block'
+                    : 'none';
+                break;
+            case 'basil':
+                basilIngr.current.style.display = vegetable.checked
+                    ? 'block'
+                    : 'none';
+                break;
+            case 'chillies':
+                chilliesIngr.current.style.display = vegetable.checked
+                    ? 'block'
+                    : 'none';
+                break;
+            default:
+                break;
+        }
+    }
+
+    function calcTotal(obj) {
+        let objInf = obj.value.split('-');
+        setTotalPrice((prev) => {
+            let newPrice = obj.checked
+                ? prev + parseFloat(objInf[1])
+                : prev - parseFloat(objInf[1]);
+            newPrice = parseFloat(newPrice.toFixed(2));
+            return newPrice;
+        });
+    }
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('center-content')}>
@@ -138,7 +294,585 @@ function Custom() {
             </div>
             <div className={cx('custom-content')}>
                 <div className={cx('custom-product-view')}>
-                    <img src={images.pepparoni} alt=""></img>
+                    <img src={images.pizzaBase} alt="" />
+                    <div className={cx('pizza-topping')}>
+                        {/* -------------------- Chillies Ingredients list ------------------ */}
+                        <div
+                            ref={chilliesIngr}
+                            className={`${cx('chillies-list')} ${cx(
+                                'ingr-list',
+                            )}`}
+                        >
+                            <img
+                                src={images.chilliesIngr}
+                                alt=""
+                                className={`${cx('chillies-slice')} ${cx(
+                                    'normal-ingr',
+                                )}  ${cx('slice-1')}`}
+                            />
+                            <img
+                                src={images.chilliesIngr}
+                                alt=""
+                                className={`${cx('chillies-slice')} ${cx(
+                                    'normal-ingr',
+                                )}  ${cx('slice-2')}`}
+                            />
+                            <img
+                                src={images.chilliesIngr}
+                                alt=""
+                                className={`${cx('chillies-slice')} ${cx(
+                                    'normal-ingr',
+                                )}  ${cx('slice-3')}`}
+                            />
+                            <img
+                                src={images.chilliesIngr}
+                                alt=""
+                                className={`${cx('chillies-slice')} ${cx(
+                                    'normal-ingr',
+                                )}  ${cx('slice-4')}`}
+                            />
+                            <img
+                                src={images.chilliesIngr}
+                                alt=""
+                                className={`${cx('chillies-slice')} ${cx(
+                                    'normal-ingr',
+                                )}  ${cx('slice-5')}`}
+                            />
+                            <img
+                                src={images.chilliesIngr}
+                                alt=""
+                                className={`${cx('chillies-slice')} ${cx(
+                                    'normal-ingr',
+                                )}  ${cx('slice-6')}`}
+                            />
+                            <img
+                                src={images.chilliesIngr}
+                                alt=""
+                                className={`${cx('chillies-slice')} ${cx(
+                                    'normal-ingr',
+                                )}  ${cx('slice-7')}`}
+                            />
+                            <img
+                                src={images.chilliesIngr}
+                                alt=""
+                                className={`${cx('chillies-slice')} ${cx(
+                                    'normal-ingr',
+                                )}  ${cx('slice-8')}`}
+                            />
+                        </div>
+
+                        {/* -------------------- Onion Ingredients list ------------------ */}
+                        <div
+                            ref={onionIngr}
+                            className={`${cx('onion-list')} ${cx('ingr-list')}`}
+                        >
+                            <img
+                                src={images.onionIngr}
+                                alt=""
+                                className={`${cx('onion-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-1')}`}
+                            />
+                            <img
+                                src={images.onionIngr}
+                                alt=""
+                                className={`${cx('onion-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-2')}`}
+                            />
+                            <img
+                                src={images.onionIngr}
+                                alt=""
+                                className={`${cx('onion-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-3')}`}
+                            />
+                            <img
+                                src={images.onionIngr}
+                                alt=""
+                                className={`${cx('onion-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-4')}`}
+                            />
+                            <img
+                                src={images.onionIngr}
+                                alt=""
+                                className={`${cx('onion-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-5')}`}
+                            />
+                            <img
+                                src={images.onionIngr}
+                                alt=""
+                                className={`${cx('onion-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-6')}`}
+                            />
+                            <img
+                                src={images.onionIngr}
+                                alt=""
+                                className={`${cx('onion-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-7')}`}
+                            />
+                            <img
+                                src={images.onionIngr}
+                                alt=""
+                                className={`${cx('onion-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-8')}`}
+                            />
+                        </div>
+
+                        {/* -------------------- Mushroom Ingredients list ------------------ */}
+                        <div
+                            ref={mushroomIngr}
+                            className={`${cx('mushroom-list')} ${cx(
+                                'ingr-list',
+                            )}`}
+                        >
+                            <img
+                                src={images.mushroomIngr}
+                                alt=""
+                                className={`${cx('mushroom-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-1')}`}
+                            />
+                            <img
+                                src={images.mushroomIngr}
+                                alt=""
+                                className={`${cx('mushroom-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-2')}`}
+                            />
+                            <img
+                                src={images.mushroomIngr}
+                                alt=""
+                                className={`${cx('mushroom-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-3')}`}
+                            />
+                            <img
+                                src={images.mushroomIngr}
+                                alt=""
+                                className={`${cx('mushroom-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-4')}`}
+                            />
+                            <img
+                                src={images.mushroomIngr}
+                                alt=""
+                                className={`${cx('mushroom-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-5')}`}
+                            />
+                            <img
+                                src={images.mushroomIngr}
+                                alt=""
+                                className={`${cx('mushroom-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-6')}`}
+                            />
+                            <img
+                                src={images.mushroomIngr}
+                                alt=""
+                                className={`${cx('mushroom-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-7')}`}
+                            />
+                            <img
+                                src={images.mushroomIngr}
+                                alt=""
+                                className={`${cx('mushroom-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-8')}`}
+                            />
+                        </div>
+
+                        {/* -------------------- Basil Ingredients list ------------------ */}
+                        <div
+                            ref={basilIngr}
+                            className={`${cx('basil-list')} ${cx('ingr-list')}`}
+                        >
+                            <img
+                                src={images.basilIngr}
+                                alt=""
+                                className={`${cx('basil-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-1')}`}
+                            />
+                            <img
+                                src={images.basilIngr}
+                                alt=""
+                                className={`${cx('basil-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-2')}`}
+                            />
+                            <img
+                                src={images.basilIngr}
+                                alt=""
+                                className={`${cx('basil-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-3')}`}
+                            />
+                            <img
+                                src={images.basilIngr}
+                                alt=""
+                                className={`${cx('basil-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-4')}`}
+                            />
+                            <img
+                                src={images.basilIngr}
+                                alt=""
+                                className={`${cx('basil-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-5')}`}
+                            />
+                            <img
+                                src={images.basilIngr}
+                                alt=""
+                                className={`${cx('basil-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-6')}`}
+                            />
+                            <img
+                                src={images.basilIngr}
+                                alt=""
+                                className={`${cx('basil-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-7')}`}
+                            />
+                            <img
+                                src={images.basilIngr}
+                                alt=""
+                                className={`${cx('basil-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-8')}`}
+                            />
+                        </div>
+
+                        {/* -------------------- Olive Ingredients list ------------------ */}
+                        <div
+                            ref={oliveIngr}
+                            className={`${cx('olive-list')} ${cx('ingr-list')}`}
+                        >
+                            <img
+                                src={images.oliveIngr}
+                                alt=""
+                                className={`${cx('olive-slice')} ${cx(
+                                    'small-ingr',
+                                )} ${cx('slice-1')}`}
+                            />
+                            <img
+                                src={images.oliveIngr}
+                                alt=""
+                                className={`${cx('olive-slice')} ${cx(
+                                    'small-ingr',
+                                )} ${cx('slice-2')}`}
+                            />
+                            <img
+                                src={images.oliveIngr}
+                                alt=""
+                                className={`${cx('olive-slice')} ${cx(
+                                    'small-ingr',
+                                )} ${cx('slice-3')}`}
+                            />
+                            <img
+                                src={images.oliveIngr}
+                                alt=""
+                                className={`${cx('olive-slice')} ${cx(
+                                    'small-ingr',
+                                )} ${cx('slice-4')}`}
+                            />
+                            <img
+                                src={images.oliveIngr}
+                                alt=""
+                                className={`${cx('olive-slice')} ${cx(
+                                    'small-ingr',
+                                )} ${cx('slice-5')}`}
+                            />
+                            <img
+                                src={images.oliveIngr}
+                                alt=""
+                                className={`${cx('olive-slice')} ${cx(
+                                    'small-ingr',
+                                )} ${cx('slice-6')}`}
+                            />
+                            <img
+                                src={images.oliveIngr}
+                                alt=""
+                                className={`${cx('olive-slice')} ${cx(
+                                    'small-ingr',
+                                )} ${cx('slice-7')}`}
+                            />
+                            <img
+                                src={images.oliveIngr}
+                                alt=""
+                                className={`${cx('olive-slice')} ${cx(
+                                    'small-ingr',
+                                )} ${cx('slice-8')}`}
+                            />
+                        </div>
+
+                        {/* -------------------- Shrimp Ingredients list ------------------ */}
+                        <div
+                            ref={shrimpIngr}
+                            className={`${cx('shrimp-list')} ${cx(
+                                'ingr-list',
+                            )}`}
+                        >
+                            <img
+                                src={images.shrimpIngr}
+                                alt=""
+                                className={`${cx('shrimp-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-1')}`}
+                            />
+                            <img
+                                src={images.shrimpIngr}
+                                alt=""
+                                className={`${cx('shrimp-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-2')}`}
+                            />
+                            <img
+                                src={images.shrimpIngr}
+                                alt=""
+                                className={`${cx('shrimp-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-3')}`}
+                            />
+                            <img
+                                src={images.shrimpIngr}
+                                alt=""
+                                className={`${cx('shrimp-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-4')}`}
+                            />
+                            <img
+                                src={images.shrimpIngr}
+                                alt=""
+                                className={`${cx('shrimp-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-5')}`}
+                            />
+                            <img
+                                src={images.shrimpIngr}
+                                alt=""
+                                className={`${cx('shrimp-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-6')}`}
+                            />
+                            <img
+                                src={images.shrimpIngr}
+                                alt=""
+                                className={`${cx('shrimp-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-7')}`}
+                            />
+                            <img
+                                src={images.shrimpIngr}
+                                alt=""
+                                className={`${cx('shrimp-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-8')}`}
+                            />
+                        </div>
+
+                        {/* -------------------- Hams Ingredients list ------------------ */}
+                        <div
+                            ref={hamsIngr}
+                            className={`${cx('hams-list')} ${cx('ingr-list')}`}
+                        >
+                            <img
+                                src={images.hamsIngr}
+                                alt=""
+                                className={`${cx('hams-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-1')}`}
+                            />
+                            <img
+                                src={images.hamsIngr}
+                                alt=""
+                                className={`${cx('hams-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-2')}`}
+                            />
+                            <img
+                                src={images.hamsIngr}
+                                alt=""
+                                className={`${cx('hams-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-3')}`}
+                            />
+                            <img
+                                src={images.hamsIngr}
+                                alt=""
+                                className={`${cx('hams-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-4')}`}
+                            />
+                            <img
+                                src={images.hamsIngr}
+                                alt=""
+                                className={`${cx('hams-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-5')}`}
+                            />
+                            <img
+                                src={images.hamsIngr}
+                                alt=""
+                                className={`${cx('hams-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-6')}`}
+                            />
+                            <img
+                                src={images.hamsIngr}
+                                alt=""
+                                className={`${cx('hams-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-7')}`}
+                            />
+                            <img
+                                src={images.hamsIngr}
+                                alt=""
+                                className={`${cx('hams-slice')} ${cx(
+                                    'normal-ingr',
+                                )} ${cx('slice-8')}`}
+                            />
+                        </div>
+
+                        {/* -------------------- Pineapple Ingredients list ------------------ */}
+                        <div
+                            ref={pineappleIngr}
+                            className={`${cx('pineapple-list')} ${cx(
+                                'ingr-list',
+                            )}`}
+                        >
+                            <img
+                                src={images.pineappleIngr}
+                                alt=""
+                                className={`${cx('pineapple-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-1')}`}
+                            />
+                            <img
+                                src={images.pineappleIngr}
+                                alt=""
+                                className={`${cx('pineapple-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-2')}`}
+                            />
+                            <img
+                                src={images.pineappleIngr}
+                                alt=""
+                                className={`${cx('pineapple-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-3')}`}
+                            />
+                            <img
+                                src={images.pineappleIngr}
+                                alt=""
+                                className={`${cx('pineapple-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-4')}`}
+                            />
+                            <img
+                                src={images.pineappleIngr}
+                                alt=""
+                                className={`${cx('pineapple-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-5')}`}
+                            />
+                            <img
+                                src={images.pineappleIngr}
+                                alt=""
+                                className={`${cx('pineapple-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-6')}`}
+                            />
+                            <img
+                                src={images.pineappleIngr}
+                                alt=""
+                                className={`${cx('pineapple-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-7')}`}
+                            />
+                            <img
+                                src={images.pineappleIngr}
+                                alt=""
+                                className={`${cx('pineapple-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-8')}`}
+                            />
+                        </div>
+
+                        {/* -------------------- Tomato Ingredients list ------------------ */}
+                        <div
+                            ref={tomatoIngr}
+                            className={`${cx('tomato-list')} ${cx(
+                                'ingr-list',
+                            )}`}
+                        >
+                            <img
+                                src={images.tomatoIngr}
+                                alt=""
+                                className={`${cx('tomato-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-1')}`}
+                            />
+                            <img
+                                src={images.tomatoIngr}
+                                alt=""
+                                className={`${cx('tomato-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-2')}`}
+                            />
+                            <img
+                                src={images.tomatoIngr}
+                                alt=""
+                                className={`${cx('tomato-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-3')}`}
+                            />
+                            <img
+                                src={images.tomatoIngr}
+                                alt=""
+                                className={`${cx('tomato-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-4')}`}
+                            />
+                            <img
+                                src={images.tomatoIngr}
+                                alt=""
+                                className={`${cx('tomato-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-5')}`}
+                            />
+                            <img
+                                src={images.tomatoIngr}
+                                alt=""
+                                className={`${cx('tomato-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-6')}`}
+                            />
+                            <img
+                                src={images.tomatoIngr}
+                                alt=""
+                                className={`${cx('tomato-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-7')}`}
+                            />
+                            <img
+                                src={images.tomatoIngr}
+                                alt=""
+                                className={`${cx('tomato-slice')} ${cx(
+                                    'large-ingr',
+                                )} ${cx('slice-8')}`}
+                            />
+                        </div>
+                    </div>
                 </div>
                 <div className={cx('custom-option-view')}>
                     <div className={cx('custom-option-center')}>
@@ -164,28 +898,36 @@ function Custom() {
                             <ul className={cx('selection-list')}>
                                 <li className={cx('selection-item')}>
                                     <input
-                                        value="sauce-1"
+                                        value="spicyRed-3.99"
+                                        onClick={(e) =>
+                                            handleSauceClick(e.target)
+                                        }
                                         className={`${cx(
                                             'selection-checkbox',
                                         )} ${cx('sauce-checkbox')}`}
                                         type="checkbox"
+                                        name="sauce"
                                     />
                                     <div className={cx('selection-item-desc')}>
                                         <p className={cx('item-name')}>
                                             Spicy Red Sauce
                                         </p>
                                         <p className={cx('item-price')}>
-                                            1.99$
+                                            3.99$
                                         </p>
                                     </div>
                                 </li>
                                 <li className={cx('selection-item')}>
                                     <input
-                                        value="sauce-2"
+                                        value="pepperyRed-1.99"
+                                        onClick={(e) =>
+                                            handleSauceClick(e.target)
+                                        }
                                         className={`${cx(
                                             'selection-checkbox',
                                         )} ${cx('sauce-checkbox')}`}
                                         type="checkbox"
+                                        name="sauce"
                                     />
                                     <div className={cx('selection-item-desc')}>
                                         <p className={cx('item-name')}>
@@ -198,11 +940,15 @@ function Custom() {
                                 </li>
                                 <li className={cx('selection-item')}>
                                     <input
-                                        value="sauce-3"
+                                        value="creamyAlfredo-1.99"
+                                        onClick={(e) =>
+                                            handleSauceClick(e.target)
+                                        }
                                         className={`${cx(
                                             'selection-checkbox',
                                         )} ${cx('sauce-checkbox')}`}
                                         type="checkbox"
+                                        name="sauce"
                                     />
                                     <div className={cx('selection-item-desc')}>
                                         <p className={cx('item-name')}>
@@ -215,15 +961,19 @@ function Custom() {
                                 </li>
                                 <li className={cx('selection-item')}>
                                     <input
-                                        value="sauce-4"
+                                        value="spicyBlack-1.99"
+                                        onClick={(e) =>
+                                            handleSauceClick(e.target)
+                                        }
                                         className={`${cx(
                                             'selection-checkbox',
                                         )} ${cx('sauce-checkbox')}`}
                                         type="checkbox"
+                                        name="sauce"
                                     />
                                     <div className={cx('selection-item-desc')}>
                                         <p className={cx('item-name')}>
-                                            Spicy Red Sauce
+                                            Spicy Black Sauce
                                         </p>
                                         <p className={cx('item-price')}>
                                             1.99$
@@ -244,7 +994,10 @@ function Custom() {
                             <ul className={cx('selection-list')}>
                                 <li className={cx('selection-item')}>
                                     <input
-                                        value="cheese-1"
+                                        value="cheddar-1.99"
+                                        onClick={(e) =>
+                                            handleCheeseClick(e.target)
+                                        }
                                         className={`${cx(
                                             'selection-checkbox',
                                         )} ${cx('cheese-checkbox')}`}
@@ -261,7 +1014,10 @@ function Custom() {
                                 </li>
                                 <li className={cx('selection-item')}>
                                     <input
-                                        value="cheese-2"
+                                        value="mozzarella-1.99"
+                                        onClick={(e) =>
+                                            handleCheeseClick(e.target)
+                                        }
                                         className={`${cx(
                                             'selection-checkbox',
                                         )} ${cx('cheese-checkbox')}`}
@@ -278,7 +1034,10 @@ function Custom() {
                                 </li>
                                 <li className={cx('selection-item')}>
                                     <input
-                                        value="cheese-3"
+                                        value="oaxaca-1.99"
+                                        onClick={(e) =>
+                                            handleCheeseClick(e.target)
+                                        }
                                         className={`${cx(
                                             'selection-checkbox',
                                         )} ${cx('cheese-checkbox')}`}
@@ -295,7 +1054,10 @@ function Custom() {
                                 </li>
                                 <li className={cx('selection-item')}>
                                     <input
-                                        value="cheese-4"
+                                        value="jarlsberg-1.99"
+                                        onClick={(e) =>
+                                            handleCheeseClick(e.target)
+                                        }
                                         className={`${cx(
                                             'selection-checkbox',
                                         )} ${cx('cheese-checkbox')}`}
@@ -324,7 +1086,10 @@ function Custom() {
                             <ul className={cx('selection-list')}>
                                 <li className={cx('selection-item')}>
                                     <input
-                                        value="topping-1"
+                                        value="hams-1.99"
+                                        onClick={(e) =>
+                                            handleToppingClick(e.target)
+                                        }
                                         className={`${cx(
                                             'selection-checkbox',
                                         )} ${cx('topping-checkbox')}`}
@@ -339,7 +1104,10 @@ function Custom() {
                                 </li>
                                 <li className={cx('selection-item')}>
                                     <input
-                                        value="topping-2"
+                                        value="shrimp-1.99"
+                                        onClick={(e) =>
+                                            handleToppingClick(e.target)
+                                        }
                                         className={`${cx(
                                             'selection-checkbox',
                                         )} ${cx('topping-checkbox')}`}
@@ -356,7 +1124,10 @@ function Custom() {
                                 </li>
                                 <li className={cx('selection-item')}>
                                     <input
-                                        value="topping-3"
+                                        value="pineapple-1.99"
+                                        onClick={(e) =>
+                                            handleToppingClick(e.target)
+                                        }
                                         className={`${cx(
                                             'selection-checkbox',
                                         )} ${cx('topping-checkbox')}`}
@@ -385,7 +1156,10 @@ function Custom() {
                             <ul className={cx('selection-list')}>
                                 <li className={cx('selection-item')}>
                                     <input
-                                        value="vegetable-1"
+                                        value="tomato-0.59"
+                                        onClick={(e) =>
+                                            handleVegetableClick(e.target)
+                                        }
                                         className={`${cx(
                                             'selection-checkbox',
                                         )} ${cx('vegetable-checkbox')}`}
@@ -402,7 +1176,10 @@ function Custom() {
                                 </li>
                                 <li className={cx('selection-item')}>
                                     <input
-                                        value="vegetable-2"
+                                        value="onion-0.59"
+                                        onClick={(e) =>
+                                            handleVegetableClick(e.target)
+                                        }
                                         className={`${cx(
                                             'selection-checkbox',
                                         )} ${cx('vegetable-checkbox')}`}
@@ -417,7 +1194,10 @@ function Custom() {
                                 </li>
                                 <li className={cx('selection-item')}>
                                     <input
-                                        value="vegetable-3"
+                                        value="mushroom-0.59"
+                                        onClick={(e) =>
+                                            handleVegetableClick(e.target)
+                                        }
                                         className={`${cx(
                                             'selection-checkbox',
                                         )} ${cx('vegetable-checkbox')}`}
@@ -434,41 +1214,10 @@ function Custom() {
                                 </li>
                                 <li className={cx('selection-item')}>
                                     <input
-                                        value="vegetable-4"
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('vegetable-checkbox')}`}
-                                        type="checkbox"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>
-                                            Leaf 1
-                                        </p>
-                                        <p className={cx('item-price')}>
-                                            0.29$
-                                        </p>
-                                    </div>
-                                </li>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="vegetable-5"
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('vegetable-checkbox')}`}
-                                        type="checkbox"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>
-                                            Leaf 2
-                                        </p>
-                                        <p className={cx('item-price')}>
-                                            0.29$
-                                        </p>
-                                    </div>
-                                </li>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="vegetable-6"
+                                        value="olive-0.29"
+                                        onClick={(e) =>
+                                            handleVegetableClick(e.target)
+                                        }
                                         className={`${cx(
                                             'selection-checkbox',
                                         )} ${cx('vegetable-checkbox')}`}
@@ -483,7 +1232,28 @@ function Custom() {
                                 </li>
                                 <li className={cx('selection-item')}>
                                     <input
-                                        value="vegetable-7"
+                                        value="basil-0.29"
+                                        onClick={(e) =>
+                                            handleVegetableClick(e.target)
+                                        }
+                                        className={`${cx(
+                                            'selection-checkbox',
+                                        )} ${cx('vegetable-checkbox')}`}
+                                        type="checkbox"
+                                    />
+                                    <div className={cx('selection-item-desc')}>
+                                        <p className={cx('item-name')}>Basil</p>
+                                        <p className={cx('item-price')}>
+                                            0.29$
+                                        </p>
+                                    </div>
+                                </li>
+                                <li className={cx('selection-item')}>
+                                    <input
+                                        value="chillies-0.29"
+                                        onClick={(e) =>
+                                            handleVegetableClick(e.target)
+                                        }
                                         className={`${cx(
                                             'selection-checkbox',
                                         )} ${cx('vegetable-checkbox')}`}
@@ -491,7 +1261,7 @@ function Custom() {
                                     />
                                     <div className={cx('selection-item-desc')}>
                                         <p className={cx('item-name')}>
-                                            Leaf 2
+                                            Chillies
                                         </p>
                                         <p className={cx('item-price')}>
                                             0.29$
@@ -502,6 +1272,12 @@ function Custom() {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className={cx('custom-order-info')}>
+                <h2 className={cx('order-info-total')}>
+                    Total cost: <span>{totalPrice}</span>$
+                </h2>
+                <button className={cx('order-info-button')}>Order now!</button>
             </div>
         </div>
     );
