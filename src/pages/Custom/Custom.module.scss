@@ -21,6 +21,26 @@
     width: 100%;
     position: relative;
     overflow: hidden;
+    margin-bottom: 200px;
+    & input {
+        display: none;
+    }
+}
+
+#radio2:checked ~ .suggest-menu-list .menu-list-2 {
+    transform: translateX(-100%);
+}
+
+#radio1:checked ~ .suggest-menu-list .menu-list-2 {
+    transform: translateX(0);
+}
+
+#radio1:checked ~ .suggest-menu-list .menu-list-1 {
+    transform: translateX(0);
+}
+
+#radio2:checked ~ .suggest-menu-list .menu-list-1 {
+    transform: translateX(-100%);
 }
 
 .suggest-menu-heading {
@@ -32,9 +52,16 @@
 
 .suggest-menu-list {
     display: flex;
-    align-items: center;
     margin: 40px 0;
     width: 200%;
+}
+
+.menu-list-1,
+.menu-list-2 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    transition: transform 3s;
 }
 
 .suggest-menu-item {
@@ -85,7 +112,7 @@
     padding: 60px;
     border-radius: 20px;
     max-height: 800px;
-    overflow-y: scroll;
+    overflow-y: hidden;
     width: 40%;
 }
 
@@ -125,10 +152,10 @@
     min-width: 520px;
     aspect-ratio: 1 / 1;
     position: absolute;
-    display: none;
-
+    transition: transform 0.6s, opacity 0.25s;
     img {
         position: absolute;
+        transition: transform 0.5s, opacity 0.2s;
     }
 
     .normal-ingr {
@@ -145,11 +172,9 @@
 }
 
 .chillies-list {
-    display: none;
     z-index: 5;
     img {
         opacity: 0.8;
-        transition: all 0.5s;
     }
     .slice-1 {
         top: 20%;
@@ -201,10 +226,9 @@
 }
 
 .onion-list {
-    display: none;
     z-index: 4;
     img {
-        transition: all 0.5s;
+        opacity: 1;
     }
     .slice-1 {
         top: 30%;
@@ -256,10 +280,9 @@
 }
 
 .mushroom-list {
-    display: none;
     z-index: 6;
     img {
-        transition: all 0.5s;
+        opacity: 1;
     }
     .slice-1 {
         top: 15%;
@@ -311,10 +334,8 @@
 }
 
 .olive-list {
-    display: none;
     z-index: 8;
     img {
-        transition: all 0.5s;
         opacity: 0.9;
     }
     .slice-1 {
@@ -367,10 +388,8 @@
 }
 
 .shrimp-list {
-    display: none;
     z-index: 7;
     img {
-        transition: all 0.5s;
         opacity: 0.8;
     }
     .slice-1 {
@@ -423,15 +442,14 @@
 }
 
 .hams-list {
-    display: none;
     z-index: 3;
     img {
-        transition: all 0.5s;
         opacity: 0.7;
     }
     .slice-1 {
         top: 10%;
         left: 32%;
+        transition: display 0.3s;
         animation: fallDown 0.4s ease-in-out;
     }
 
@@ -479,10 +497,8 @@
 }
 
 .pineapple-list {
-    display: none;
     z-index: 1;
     img {
-        transition: all 0.5s;
         opacity: 0.7;
     }
     .slice-1 {
@@ -535,10 +551,8 @@
 }
 
 .tomato-list {
-    display: none;
     z-index: 2;
     img {
-        transition: all 0.5s;
         opacity: 0.6;
     }
     .slice-1 {
@@ -591,10 +605,9 @@
 }
 
 .basil-list {
-    display: none;
     z-index: 9;
     img {
-        transition: all 0.5s;
+        opacity: 1;
     }
     .slice-1 {
         top: 20%;
@@ -644,13 +657,14 @@
         animation: fallDown 1s ease-in-out;
     }
 }
-@keyframes fallDown {
-    from {
-        transform: translateY(-800%);
-    }
-    to {
-        transform: translateY(0);
-    }
+
+.visual-hidden {
+    transform: translateY(-200%) translateX(-50%);
+    opacity: 0 !important;
+}
+
+.hidden {
+    display: none;
 }
 
 // Custom order info
@@ -679,9 +693,19 @@
     font-size: 2rem;
     font-family: 'Courier New', Courier, monospace;
     cursor: pointer;
+    transition: transform 0.5s;
     &:hover {
         opacity: 0.9;
-        transition: 0.5s;
         transform: translateY(-8px);
+    }
+}
+
+@keyframes fallDown {
+    from {
+        opacity: 0;
+        transform: translateY(-300%);
+    }
+    to {
+        transform: translateY(0);
     }
 }

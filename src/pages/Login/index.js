@@ -1,9 +1,12 @@
 import classNames from 'classnames/bind';
 import styles from './Login.module.scss';
 import { Link } from 'react-router-dom';
+import { useRef } from 'react';
 
 const cx = classNames.bind(styles);
 function Login() {
+    const redirectLink = useRef();
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('login-content')}>
@@ -47,7 +50,11 @@ function Login() {
                     <button className={cx('form-group-button')}>Sign In</button>
                     <div className={cx('form-redirect')}>
                         <span>New here? </span>
-                        <Link to="/register" className={cx('redirect-link')}>
+                        <Link
+                            ref={redirectLink}
+                            to="/register"
+                            className={cx('redirect-link')}
+                        >
                             Create one now!
                         </Link>
                     </div>

@@ -84,19 +84,13 @@ function Custom() {
         let toppingInf = topping.value.split('-');
         switch (toppingInf[0]) {
             case 'hams':
-                hamsIngr.current.style.display = topping.checked
-                    ? 'block'
-                    : 'none';
+                doSwitchDisplay(hamsIngr, topping.checked);
                 break;
             case 'shrimp':
-                shrimpIngr.current.style.display = topping.checked
-                    ? 'block'
-                    : 'none';
+                doSwitchDisplay(shrimpIngr, topping.checked);
                 break;
             case 'pineapple':
-                pineappleIngr.current.style.display = topping.checked
-                    ? 'block'
-                    : 'none';
+                doSwitchDisplay(pineappleIngr, topping.checked);
                 break;
             default:
                 break;
@@ -120,34 +114,22 @@ function Custom() {
         console.log(vegetableInf[0] + ' ' + vegetableInf[1]);
         switch (vegetableInf[0]) {
             case 'tomato':
-                tomatoIngr.current.style.display = vegetable.checked
-                    ? 'block'
-                    : 'none';
+                doSwitchDisplay(tomatoIngr, vegetable.checked);
                 break;
             case 'onion':
-                onionIngr.current.style.display = vegetable.checked
-                    ? 'block'
-                    : 'none';
+                doSwitchDisplay(onionIngr, vegetable.checked);
                 break;
             case 'mushroom':
-                mushroomIngr.current.style.display = vegetable.checked
-                    ? 'block'
-                    : 'none';
+                doSwitchDisplay(mushroomIngr, vegetable.checked);
                 break;
             case 'olive':
-                oliveIngr.current.style.display = vegetable.checked
-                    ? 'block'
-                    : 'none';
+                doSwitchDisplay(oliveIngr, vegetable.checked);
                 break;
             case 'basil':
-                basilIngr.current.style.display = vegetable.checked
-                    ? 'block'
-                    : 'none';
+                doSwitchDisplay(basilIngr, vegetable.checked);
                 break;
             case 'chillies':
-                chilliesIngr.current.style.display = vegetable.checked
-                    ? 'block'
-                    : 'none';
+                doSwitchDisplay(chilliesIngr, vegetable.checked);
                 break;
             default:
                 break;
@@ -165,6 +147,54 @@ function Custom() {
         });
     }
 
+    function doSwitchDisplay(obj, doDisplay) {
+        if (doDisplay) {
+            obj.current.classList.remove(cx('visual-hidden'));
+            obj.current.classList.remove(cx('hidden'));
+        } else {
+            obj.current.classList.add(cx('visual-hidden'));
+            setTimeout(() => {
+                obj.current.classList.add(cx('hidden'));
+            }, 600);
+        }
+    }
+
+    const [activeMenu, setActiveMenu] = useState(1);
+    const radio1 = useRef();
+    const radio2 = useRef();
+    useEffect(() => {
+        if (activeMenu === 1) radio1.current.checked = true;
+        else radio2.current.checked = true;
+        let ret = setInterval(() => {
+            if (activeMenu === 1) radio1.current.checked = false;
+
+            if (activeMenu === 2) setActiveMenu(1);
+            else setActiveMenu(activeMenu + 1);
+        }, 6000);
+        return () => {
+            clearInterval(ret);
+        };
+    }, [activeMenu]);
+
+    function handleMenuLeftIconClick() {
+        if (activeMenu === 1) {
+            radio2.current.checked = true;
+            setActiveMenu(2);
+        } else {
+            radio1.current.checked = true;
+            setActiveMenu(1);
+        }
+    }
+    function handleMenuRightIconClick() {
+        if (activeMenu === 2) {
+            radio1.current.checked = true;
+            setActiveMenu(1);
+        } else {
+            radio2.current.checked = true;
+            setActiveMenu(2);
+        }
+    }
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('center-content')}>
@@ -175,119 +205,140 @@ function Custom() {
                 <h4 className={cx('suggest-menu-heading')}>
                     Try out our most famous recipe
                 </h4>
-                <ul className={cx('suggest-menu-list')}>
-                    <li className={cx('suggest-menu-item')}>
-                        <img
-                            src={images.hamAndCheese}
-                            alt=""
-                            className={cx('menu-item-img')}
-                        ></img>
-                        <div className={cx('menu-item-desc')}>
-                            <p className={cx('menu-item-name')}>
-                                Ham & Cheese Pizza
-                            </p>
-                            <p className={cx('menu-item-price')}>12.99$</p>
-                            <button
-                                className={`${cx('btn')} ${cx('btn-dark')}`}
-                            >
-                                Buy it!
-                            </button>
-                        </div>
-                    </li>
-                    <li className={cx('suggest-menu-item')}>
-                        <img
-                            src={images.margherita}
-                            alt=""
-                            className={cx('menu-item-img')}
-                        ></img>
-                        <div className={cx('menu-item-desc')}>
-                            <p className={cx('menu-item-name')}>
-                                Margherita Pizza
-                            </p>
-                            <p className={cx('menu-item-price')}>12.99$</p>
-                            <button
-                                className={`${cx('btn')} ${cx('btn-dark')}`}
-                            >
-                                Buy it!
-                            </button>
-                        </div>
-                    </li>
-                    <li className={cx('suggest-menu-item')}>
-                        <img
-                            src={images.onion}
-                            alt=""
-                            className={cx('menu-item-img')}
-                        ></img>
-                        <div className={cx('menu-item-desc')}>
-                            <p className={cx('menu-item-name')}>Onion Pizza</p>
-                            <p className={cx('menu-item-price')}>12.99$</p>
-                            <button
-                                className={`${cx('btn')} ${cx('btn-dark')}`}
-                            >
-                                Buy it!
-                            </button>
-                        </div>
-                    </li>
-                    <li className={cx('suggest-menu-item')}>
-                        <img
-                            src={images.pepparoni}
-                            alt=""
-                            className={cx('menu-item-img')}
-                        ></img>
-                        <div className={cx('menu-item-desc')}>
-                            <p className={cx('menu-item-name')}>
-                                Pepparoni Pizza
-                            </p>
-                            <p className={cx('menu-item-price')}>12.99$</p>
-                            <button
-                                className={`${cx('btn')} ${cx('btn-dark')}`}
-                            >
-                                Buy it!
-                            </button>
-                        </div>
-                    </li>
-                    <li className={cx('suggest-menu-item')}>
-                        <img
-                            src={images.vegetarian}
-                            alt=""
-                            className={cx('menu-item-img')}
-                        ></img>
-                        <div className={cx('menu-item-desc')}>
-                            <p className={cx('menu-item-name')}>
-                                Vegetarian Pizza
-                            </p>
-                            <p className={cx('menu-item-price')}>12.99$</p>
-                            <button
-                                className={`${cx('btn')} ${cx('btn-dark')}`}
-                            >
-                                Buy it!
-                            </button>
-                        </div>
-                    </li>
-                    <li className={cx('suggest-menu-item')}>
-                        <img
-                            src={images.specialty}
-                            alt=""
-                            className={cx('menu-item-img')}
-                        ></img>
-                        <div className={cx('menu-item-desc')}>
-                            <p className={cx('menu-item-name')}>
-                                Specialty Pizza
-                            </p>
-                            <p className={cx('menu-item-price')}>12.99$</p>
-                            <button
-                                className={`${cx('btn')} ${cx('btn-dark')}`}
-                            >
-                                Buy it!
-                            </button>
-                        </div>
-                    </li>
-                </ul>
+                <input
+                    ref={radio1}
+                    name="navi-radio"
+                    type="radio"
+                    id={`${cx('radio1')}`}
+                ></input>
+                <input
+                    ref={radio2}
+                    name="navi-radio"
+                    type="radio"
+                    id={`${cx('radio2')}`}
+                ></input>
+
+                <div className={cx('suggest-menu-list')}>
+                    <ul className={cx('menu-list-1')}>
+                        <li className={cx('suggest-menu-item')}>
+                            <img
+                                src={images.hamAndCheese}
+                                alt=""
+                                className={cx('menu-item-img')}
+                            ></img>
+                            <div className={cx('menu-item-desc')}>
+                                <p className={cx('menu-item-name')}>
+                                    Ham & Cheese Pizza
+                                </p>
+                                <p className={cx('menu-item-price')}>12.99$</p>
+                                <button
+                                    className={`${cx('btn')} ${cx('btn-dark')}`}
+                                >
+                                    Buy it!
+                                </button>
+                            </div>
+                        </li>
+                        <li className={cx('suggest-menu-item')}>
+                            <img
+                                src={images.margherita}
+                                alt=""
+                                className={cx('menu-item-img')}
+                            ></img>
+                            <div className={cx('menu-item-desc')}>
+                                <p className={cx('menu-item-name')}>
+                                    Margherita Pizza
+                                </p>
+                                <p className={cx('menu-item-price')}>12.99$</p>
+                                <button
+                                    className={`${cx('btn')} ${cx('btn-dark')}`}
+                                >
+                                    Buy it!
+                                </button>
+                            </div>
+                        </li>
+                        <li className={cx('suggest-menu-item')}>
+                            <img
+                                src={images.onion}
+                                alt=""
+                                className={cx('menu-item-img')}
+                            ></img>
+                            <div className={cx('menu-item-desc')}>
+                                <p className={cx('menu-item-name')}>
+                                    Onion Pizza
+                                </p>
+                                <p className={cx('menu-item-price')}>12.99$</p>
+                                <button
+                                    className={`${cx('btn')} ${cx('btn-dark')}`}
+                                >
+                                    Buy it!
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul className={cx('menu-list-2')}>
+                        <li className={cx('suggest-menu-item')}>
+                            <img
+                                src={images.pepparoni}
+                                alt=""
+                                className={cx('menu-item-img')}
+                            ></img>
+                            <div className={cx('menu-item-desc')}>
+                                <p className={cx('menu-item-name')}>
+                                    Pepparoni Pizza
+                                </p>
+                                <p className={cx('menu-item-price')}>12.99$</p>
+                                <button
+                                    className={`${cx('btn')} ${cx('btn-dark')}`}
+                                >
+                                    Buy it!
+                                </button>
+                            </div>
+                        </li>
+                        <li className={cx('suggest-menu-item')}>
+                            <img
+                                src={images.vegetarian}
+                                alt=""
+                                className={cx('menu-item-img')}
+                            ></img>
+                            <div className={cx('menu-item-desc')}>
+                                <p className={cx('menu-item-name')}>
+                                    Vegetarian Pizza
+                                </p>
+                                <p className={cx('menu-item-price')}>12.99$</p>
+                                <button
+                                    className={`${cx('btn')} ${cx('btn-dark')}`}
+                                >
+                                    Buy it!
+                                </button>
+                            </div>
+                        </li>
+                        <li className={cx('suggest-menu-item')}>
+                            <img
+                                src={images.specialty}
+                                alt=""
+                                className={cx('menu-item-img')}
+                            ></img>
+                            <div className={cx('menu-item-desc')}>
+                                <p className={cx('menu-item-name')}>
+                                    Specialty Pizza
+                                </p>
+                                <p className={cx('menu-item-price')}>12.99$</p>
+                                <button
+                                    className={`${cx('btn')} ${cx('btn-dark')}`}
+                                >
+                                    Buy it!
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                 <FontAwesomeIcon
+                    onClick={handleMenuLeftIconClick}
                     className={`${cx('navigation-icon')} ${cx('left')}`}
                     icon={faChevronLeft}
                 />
                 <FontAwesomeIcon
+                    onClick={handleMenuRightIconClick}
                     className={`${cx('navigation-icon')} ${cx('right')}`}
                     icon={faChevronRight}
                 />
@@ -301,7 +352,7 @@ function Custom() {
                             ref={chilliesIngr}
                             className={`${cx('chillies-list')} ${cx(
                                 'ingr-list',
-                            )}`}
+                            )} ${cx('hidden')}`}
                         >
                             <img
                                 src={images.chilliesIngr}
@@ -364,7 +415,9 @@ function Custom() {
                         {/* -------------------- Onion Ingredients list ------------------ */}
                         <div
                             ref={onionIngr}
-                            className={`${cx('onion-list')} ${cx('ingr-list')}`}
+                            className={`${cx('onion-list')} ${cx(
+                                'ingr-list',
+                            )} ${cx('hidden')}`}
                         >
                             <img
                                 src={images.onionIngr}
@@ -429,7 +482,7 @@ function Custom() {
                             ref={mushroomIngr}
                             className={`${cx('mushroom-list')} ${cx(
                                 'ingr-list',
-                            )}`}
+                            )} ${cx('hidden')}`}
                         >
                             <img
                                 src={images.mushroomIngr}
@@ -492,7 +545,9 @@ function Custom() {
                         {/* -------------------- Basil Ingredients list ------------------ */}
                         <div
                             ref={basilIngr}
-                            className={`${cx('basil-list')} ${cx('ingr-list')}`}
+                            className={`${cx('basil-list')} ${cx(
+                                'ingr-list',
+                            )} ${cx('hidden')}`}
                         >
                             <img
                                 src={images.basilIngr}
@@ -555,7 +610,9 @@ function Custom() {
                         {/* -------------------- Olive Ingredients list ------------------ */}
                         <div
                             ref={oliveIngr}
-                            className={`${cx('olive-list')} ${cx('ingr-list')}`}
+                            className={`${cx('olive-list')} ${cx(
+                                'ingr-list',
+                            )} ${cx('hidden')}`}
                         >
                             <img
                                 src={images.oliveIngr}
@@ -620,7 +677,7 @@ function Custom() {
                             ref={shrimpIngr}
                             className={`${cx('shrimp-list')} ${cx(
                                 'ingr-list',
-                            )}`}
+                            )} ${cx('hidden')}`}
                         >
                             <img
                                 src={images.shrimpIngr}
@@ -683,7 +740,9 @@ function Custom() {
                         {/* -------------------- Hams Ingredients list ------------------ */}
                         <div
                             ref={hamsIngr}
-                            className={`${cx('hams-list')} ${cx('ingr-list')}`}
+                            className={`${cx('hams-list')} ${cx(
+                                'ingr-list',
+                            )} ${cx('hidden')}`}
                         >
                             <img
                                 src={images.hamsIngr}
@@ -748,7 +807,7 @@ function Custom() {
                             ref={pineappleIngr}
                             className={`${cx('pineapple-list')} ${cx(
                                 'ingr-list',
-                            )}`}
+                            )} ${cx('hidden')}`}
                         >
                             <img
                                 src={images.pineappleIngr}
@@ -813,7 +872,7 @@ function Custom() {
                             ref={tomatoIngr}
                             className={`${cx('tomato-list')} ${cx(
                                 'ingr-list',
-                            )}`}
+                            )} ${cx('hidden')}`}
                         >
                             <img
                                 src={images.tomatoIngr}

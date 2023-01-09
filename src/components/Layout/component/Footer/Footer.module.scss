@@ -2,14 +2,17 @@
     min-height: 400px;
     background-color: var(--black);
     color: var(--white);
+    width: 100%;
 }
 
 .footer-content {
     padding-top: 60px;
+    padding: 60px 12px 0 12px;
     display: flex;
     align-items: flex-start;
-    gap: 160px;
+    column-gap: 100px;
     width: var(--container-width);
+    max-width: 100%;
     margin: 0 auto;
     margin-bottom: 40px;
 }
@@ -59,8 +62,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 0;
+    padding: 40px 12px;
     width: var(--container-width);
+    max-width: 100%;
     margin: 0 auto;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }

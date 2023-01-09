@@ -16,6 +16,7 @@ body {
     transform: translateX(-50%);
     user-select: none;
     z-index: 1;
+    overflow: hidden;
 }
 
 .header-brand {
