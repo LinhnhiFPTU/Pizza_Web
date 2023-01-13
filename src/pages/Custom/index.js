@@ -7,6 +7,7 @@ import {
     faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useRef, useState } from 'react';
+import OptionList from './component/OptionList';
 const cx = classNames.bind(styles);
 
 function Custom() {
@@ -25,6 +26,10 @@ function Custom() {
     const [vegetables, setVegetables] = useState([]);
     const [cheeses, setCheeses] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
+    const [sauceList, setSauceList] = useState([]);
+    const [cheeseList, setCheeseList] = useState([]);
+    const [toppingList, setToppingList] = useState([]);
+    const [vegetableList, setVegetableList] = useState([]);
 
     // console.log(selectionCheckboxs);
     useEffect(() => {
@@ -40,6 +45,24 @@ function Custom() {
         console.log('Vegetable: ' + newVegetables);
         console.log('Cheese: ' + newCheeses);
     }, [sauce, toppings, vegetables, cheeses]);
+
+    useEffect(() => {
+        Promise.all([
+            fetch('https://localhost:7072/Pizzon/CustomPizza?option=1'),
+            fetch('https://localhost:7072/Pizzon/CustomPizza?option=2'),
+            fetch('https://localhost:7072/Pizzon/CustomPizza?option=3'),
+            fetch('https://localhost:7072/Pizzon/CustomPizza?option=4'),
+        ])
+            .then(([sauceslist, cheeseslist, vegetableslist, toppingslist]) => {
+                setSauceList(sauceslist.json());
+                setCheeseList(cheeseslist.json());
+                setVegetableList(vegetableslist.json());
+                setToppingList(toppingslist.json());
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
 
     function handleSauceClick(obj) {
         if (sauce) {
@@ -81,15 +104,15 @@ function Custom() {
     }
 
     function handleDisplayTopping(topping) {
-        let toppingInf = topping.value.split('-');
-        switch (toppingInf[0]) {
-            case 'hams':
+        let toppingInf = topping.value;
+        switch (toppingInf) {
+            case '1':
                 doSwitchDisplay(hamsIngr, topping.checked);
                 break;
-            case 'shrimp':
+            case '2':
                 doSwitchDisplay(shrimpIngr, topping.checked);
                 break;
-            case 'pineapple':
+            case '3':
                 doSwitchDisplay(pineappleIngr, topping.checked);
                 break;
             default:
@@ -110,25 +133,24 @@ function Custom() {
     }
 
     function handleDisplayVegetable(vegetable) {
-        let vegetableInf = vegetable.value.split('-');
-        console.log(vegetableInf[0] + ' ' + vegetableInf[1]);
-        switch (vegetableInf[0]) {
-            case 'tomato':
+        let vegetableInf = vegetable.value;
+        switch (vegetableInf) {
+            case '1':
                 doSwitchDisplay(tomatoIngr, vegetable.checked);
                 break;
-            case 'onion':
+            case '2':
                 doSwitchDisplay(onionIngr, vegetable.checked);
                 break;
-            case 'mushroom':
+            case '3':
                 doSwitchDisplay(mushroomIngr, vegetable.checked);
                 break;
-            case 'olive':
+            case '4':
                 doSwitchDisplay(oliveIngr, vegetable.checked);
                 break;
-            case 'basil':
+            case '5':
                 doSwitchDisplay(basilIngr, vegetable.checked);
                 break;
-            case 'chillies':
+            case '6':
                 doSwitchDisplay(chilliesIngr, vegetable.checked);
                 break;
             default:
@@ -137,11 +159,11 @@ function Custom() {
     }
 
     function calcTotal(obj) {
-        let objInf = obj.value.split('-');
+        let objPrice = obj.dataset.price;
         setTotalPrice((prev) => {
             let newPrice = obj.checked
-                ? prev + parseFloat(objInf[1])
-                : prev - parseFloat(objInf[1]);
+                ? prev + parseFloat(objPrice)
+                : prev - parseFloat(objPrice);
             newPrice = parseFloat(newPrice.toFixed(2));
             return newPrice;
         });
@@ -946,389 +968,29 @@ function Custom() {
                     {/* ------------------ Option Selection Part -------------------------- */}
                     <div className={cx('option-selection')}>
                         {/* ------------------------- Sauce Selection Section ------------------------- */}
-                        <div className={cx('selection-section')}>
-                            <h4
-                                className={`${cx('selection-type')} ${cx(
-                                    'selection-sauce',
-                                )}`}
-                            >
-                                Sauces
-                            </h4>
-                            <ul className={cx('selection-list')}>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="spicyRed-3.99"
-                                        onClick={(e) =>
-                                            handleSauceClick(e.target)
-                                        }
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('sauce-checkbox')}`}
-                                        type="checkbox"
-                                        name="sauce"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>
-                                            Spicy Red Sauce
-                                        </p>
-                                        <p className={cx('item-price')}>
-                                            3.99$
-                                        </p>
-                                    </div>
-                                </li>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="pepperyRed-1.99"
-                                        onClick={(e) =>
-                                            handleSauceClick(e.target)
-                                        }
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('sauce-checkbox')}`}
-                                        type="checkbox"
-                                        name="sauce"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>
-                                            Peppery Red Sauce
-                                        </p>
-                                        <p className={cx('item-price')}>
-                                            1.99$
-                                        </p>
-                                    </div>
-                                </li>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="creamyAlfredo-1.99"
-                                        onClick={(e) =>
-                                            handleSauceClick(e.target)
-                                        }
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('sauce-checkbox')}`}
-                                        type="checkbox"
-                                        name="sauce"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>
-                                            Creamy Alfredo Sauce
-                                        </p>
-                                        <p className={cx('item-price')}>
-                                            1.99$
-                                        </p>
-                                    </div>
-                                </li>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="spicyBlack-1.99"
-                                        onClick={(e) =>
-                                            handleSauceClick(e.target)
-                                        }
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('sauce-checkbox')}`}
-                                        type="checkbox"
-                                        name="sauce"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>
-                                            Spicy Black Sauce
-                                        </p>
-                                        <p className={cx('item-price')}>
-                                            1.99$
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        <OptionList
+                            optionList={sauceList}
+                            type="Sauce"
+                            handleClick={handleSauceClick}
+                        />
                         {/* ------------------------- Cheese Selection Section ------------------------- */}
-                        <div className={cx('selection-section')}>
-                            <h4
-                                className={`${cx('selection-type')} ${cx(
-                                    'selection-cheese',
-                                )}`}
-                            >
-                                Cheeses
-                            </h4>
-                            <ul className={cx('selection-list')}>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="cheddar-1.99"
-                                        onClick={(e) =>
-                                            handleCheeseClick(e.target)
-                                        }
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('cheese-checkbox')}`}
-                                        type="checkbox"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>
-                                            Cheddar curds
-                                        </p>
-                                        <p className={cx('item-price')}>
-                                            1.99$
-                                        </p>
-                                    </div>
-                                </li>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="mozzarella-1.99"
-                                        onClick={(e) =>
-                                            handleCheeseClick(e.target)
-                                        }
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('cheese-checkbox')}`}
-                                        type="checkbox"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>
-                                            Mozzarella
-                                        </p>
-                                        <p className={cx('item-price')}>
-                                            1.99$
-                                        </p>
-                                    </div>
-                                </li>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="oaxaca-1.99"
-                                        onClick={(e) =>
-                                            handleCheeseClick(e.target)
-                                        }
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('cheese-checkbox')}`}
-                                        type="checkbox"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>
-                                            Oaxaca
-                                        </p>
-                                        <p className={cx('item-price')}>
-                                            1.99$
-                                        </p>
-                                    </div>
-                                </li>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="jarlsberg-1.99"
-                                        onClick={(e) =>
-                                            handleCheeseClick(e.target)
-                                        }
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('cheese-checkbox')}`}
-                                        type="checkbox"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>
-                                            Jarlsberg
-                                        </p>
-                                        <p className={cx('item-price')}>
-                                            1.99$
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        <OptionList
+                            type="Cheese"
+                            optionList={cheeseList}
+                            handleClick={handleCheeseClick}
+                        />
                         {/* ------------------------- Topping Selection Section ------------------------- */}
-                        <div className={cx('selection-section')}>
-                            <h4
-                                className={`${cx('selection-type')} ${cx(
-                                    'selection-topping',
-                                )}`}
-                            >
-                                Topping
-                            </h4>
-                            <ul className={cx('selection-list')}>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="hams-1.99"
-                                        onClick={(e) =>
-                                            handleToppingClick(e.target)
-                                        }
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('topping-checkbox')}`}
-                                        type="checkbox"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>Hams</p>
-                                        <p className={cx('item-price')}>
-                                            1.99$
-                                        </p>
-                                    </div>
-                                </li>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="shrimp-1.99"
-                                        onClick={(e) =>
-                                            handleToppingClick(e.target)
-                                        }
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('topping-checkbox')}`}
-                                        type="checkbox"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>
-                                            shrimp
-                                        </p>
-                                        <p className={cx('item-price')}>
-                                            1.99$
-                                        </p>
-                                    </div>
-                                </li>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="pineapple-1.99"
-                                        onClick={(e) =>
-                                            handleToppingClick(e.target)
-                                        }
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('topping-checkbox')}`}
-                                        type="checkbox"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>
-                                            Pineapple
-                                        </p>
-                                        <p className={cx('item-price')}>
-                                            1.99$
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        <OptionList
+                            optionList={toppingList}
+                            type="Topping"
+                            handleClick={handleToppingClick}
+                        />
                         {/* ------------------------- Vegetable Selection Section ------------------------- */}
-                        <div className={cx('selection-section')}>
-                            <h4
-                                className={`${cx('selection-type')} ${cx(
-                                    'selection-vegetable',
-                                )}`}
-                            >
-                                Vegetable
-                            </h4>
-                            <ul className={cx('selection-list')}>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="tomato-0.59"
-                                        onClick={(e) =>
-                                            handleVegetableClick(e.target)
-                                        }
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('vegetable-checkbox')}`}
-                                        type="checkbox"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>
-                                            Tomato
-                                        </p>
-                                        <p className={cx('item-price')}>
-                                            0.59$
-                                        </p>
-                                    </div>
-                                </li>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="onion-0.59"
-                                        onClick={(e) =>
-                                            handleVegetableClick(e.target)
-                                        }
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('vegetable-checkbox')}`}
-                                        type="checkbox"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>Onion</p>
-                                        <p className={cx('item-price')}>
-                                            0.59$
-                                        </p>
-                                    </div>
-                                </li>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="mushroom-0.59"
-                                        onClick={(e) =>
-                                            handleVegetableClick(e.target)
-                                        }
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('vegetable-checkbox')}`}
-                                        type="checkbox"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>
-                                            Mushroom
-                                        </p>
-                                        <p className={cx('item-price')}>
-                                            0.59$
-                                        </p>
-                                    </div>
-                                </li>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="olive-0.29"
-                                        onClick={(e) =>
-                                            handleVegetableClick(e.target)
-                                        }
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('vegetable-checkbox')}`}
-                                        type="checkbox"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>Olive</p>
-                                        <p className={cx('item-price')}>
-                                            0.29$
-                                        </p>
-                                    </div>
-                                </li>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="basil-0.29"
-                                        onClick={(e) =>
-                                            handleVegetableClick(e.target)
-                                        }
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('vegetable-checkbox')}`}
-                                        type="checkbox"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>Basil</p>
-                                        <p className={cx('item-price')}>
-                                            0.29$
-                                        </p>
-                                    </div>
-                                </li>
-                                <li className={cx('selection-item')}>
-                                    <input
-                                        value="chillies-0.29"
-                                        onClick={(e) =>
-                                            handleVegetableClick(e.target)
-                                        }
-                                        className={`${cx(
-                                            'selection-checkbox',
-                                        )} ${cx('vegetable-checkbox')}`}
-                                        type="checkbox"
-                                    />
-                                    <div className={cx('selection-item-desc')}>
-                                        <p className={cx('item-name')}>
-                                            Chillies
-                                        </p>
-                                        <p className={cx('item-price')}>
-                                            0.29$
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        <OptionList
+                            optionList={vegetableList}
+                            type="Vegetable"
+                            handleClick={handleVegetableClick}
+                        />
                     </div>
                 </div>
             </div>

@@ -1,0 +1,18 @@
+.selection-type {
+    font-size: 1.8rem;
+    font-family: 'Pacifico', cursive;
+    font-weight: 400;
+    line-height: 1.8;
+    letter-spacing: 0.5rem;
+    color: var(--primary);
+}
+
+.selection-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.selection-item-desc {
+    display: flex;
+    column-gap: 100px;
+}

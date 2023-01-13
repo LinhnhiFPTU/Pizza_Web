@@ -4,6 +4,7 @@
     padding-bottom: 80px;
     margin-top: -25px;
     padding-top: 150px;
+    overflow: hidden;
 }
 
 .custom-content {
@@ -112,7 +113,7 @@
     padding: 60px;
     border-radius: 20px;
     max-height: 800px;
-    overflow-y: hidden;
+    overflow-y: scroll;
     width: 40%;
 }
 
