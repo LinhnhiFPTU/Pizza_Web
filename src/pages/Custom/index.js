@@ -54,10 +54,10 @@ function Custom() {
             fetch('https://localhost:7072/Pizzon/CustomPizza?option=4'),
         ])
             .then(([sauceslist, cheeseslist, vegetableslist, toppingslist]) => {
-                setSauceList(sauceslist.json());
-                setCheeseList(cheeseslist.json());
-                setVegetableList(vegetableslist.json());
-                setToppingList(toppingslist.json());
+                setSauceList(sauceslist);
+                setCheeseList(cheeseslist);
+                setVegetableList(vegetableslist);
+                setToppingList(toppingslist);
             })
             .catch((err) => {
                 console.log(err);
