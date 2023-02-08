@@ -49,6 +49,10 @@ const images = {
     shrimpIngr: require('./ingredients/shrimp-ingr.png'),
     tomatoIngr: require('./ingredients/tomato-ingr.png'),
     oliveIngr: require('./ingredients/olive-ingr.png'),
+    aboutUsBanner: require('./blog-7.jpg'),
+    about1: require('./about-1.jpg'),
+    signature: require('./signature.png'),
+    customer1: require('./customer-1.png'),
 };
 
 export default images;

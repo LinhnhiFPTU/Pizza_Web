@@ -30,6 +30,34 @@ function Custom() {
     const [cheeseList, setCheeseList] = useState([]);
     const [toppingList, setToppingList] = useState([]);
     const [vegetableList, setVegetableList] = useState([]);
+    const demoSauceList = [
+        { Id: 1, name: 'Spicy Red Sauce', price: 3.99 },
+        { Id: 2, name: 'Spicy Red Sauce', price: 3.99 },
+        { Id: 3, name: 'Spicy Red Sauce', price: 3.99 },
+        { Id: 4, name: 'Spicy Red Sauce', price: 3.99 },
+    ];
+
+    const demoCheeseList = [
+        { Id: 1, name: 'Spicy Red Sauce', price: 3.99 },
+        { Id: 2, name: 'Spicy Red Sauce', price: 3.99 },
+        { Id: 3, name: 'Spicy Red Sauce', price: 3.99 },
+        { Id: 4, name: 'Spicy Red Sauce', price: 3.99 },
+    ];
+
+    const demoToppingList = [
+        { Id: 1, name: 'Spicy Red Sauce', price: 3.99 },
+        { Id: 2, name: 'Spicy Red Sauce', price: 3.99 },
+        { Id: 3, name: 'Spicy Red Sauce', price: 3.99 },
+    ];
+
+    const demoVegetableList = [
+        { Id: 1, name: 'Spicy Red Sauce', price: 3.99 },
+        { Id: 2, name: 'Spicy Red Sauce', price: 3.99 },
+        { Id: 3, name: 'Spicy Red Sauce', price: 3.99 },
+        { Id: 4, name: 'Spicy Red Sauce', price: 3.99 },
+        { Id: 5, name: 'Spicy Red Sauce', price: 3.99 },
+        { Id: 6, name: 'Spicy Red Sauce', price: 3.99 },
+    ];
 
     // console.log(selectionCheckboxs);
     useEffect(() => {
@@ -46,23 +74,23 @@ function Custom() {
         console.log('Cheese: ' + newCheeses);
     }, [sauce, toppings, vegetables, cheeses]);
 
-    useEffect(() => {
-        Promise.all([
-            fetch('https://localhost:7072/Pizzon/CustomPizza?option=1'),
-            fetch('https://localhost:7072/Pizzon/CustomPizza?option=2'),
-            fetch('https://localhost:7072/Pizzon/CustomPizza?option=3'),
-            fetch('https://localhost:7072/Pizzon/CustomPizza?option=4'),
-        ])
-            .then(([sauceslist, cheeseslist, vegetableslist, toppingslist]) => {
-                setSauceList(sauceslist);
-                setCheeseList(cheeseslist);
-                setVegetableList(vegetableslist);
-                setToppingList(toppingslist);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }, []);
+    // useEffect(() => {
+    //     Promise.all([
+    //         fetch('https://localhost:7072/Pizzon/CustomPizza?option=1'),
+    //         fetch('https://localhost:7072/Pizzon/CustomPizza?option=2'),
+    //         fetch('https://localhost:7072/Pizzon/CustomPizza?option=3'),
+    //         fetch('https://localhost:7072/Pizzon/CustomPizza?option=4'),
+    //     ])
+    //         .then(([sauceslist, cheeseslist, vegetableslist, toppingslist]) => {
+    //             setSauceList(sauceslist);
+    //             setCheeseList(cheeseslist);
+    //             setVegetableList(vegetableslist);
+    //             setToppingList(toppingslist);
+    //         })
+    //         .catch((err) => {
+    //             console.log(err);
+    //         });
+    // }, []);
 
     function handleSauceClick(obj) {
         if (sauce) {
@@ -188,10 +216,13 @@ function Custom() {
         if (activeMenu === 1) radio1.current.checked = true;
         else radio2.current.checked = true;
         let ret = setInterval(() => {
-            if (activeMenu === 1) radio1.current.checked = false;
-
-            if (activeMenu === 2) setActiveMenu(1);
-            else setActiveMenu(activeMenu + 1);
+            if (activeMenu === 1) {
+                radio1.current.checked = false;
+                setActiveMenu(activeMenu + 1);
+            } else {
+                setActiveMenu(1);
+                radio2.current.checked = false;
+            }
         }, 6000);
         return () => {
             clearInterval(ret);
@@ -969,25 +1000,25 @@ function Custom() {
                     <div className={cx('option-selection')}>
                         {/* ------------------------- Sauce Selection Section ------------------------- */}
                         <OptionList
-                            optionList={sauceList}
+                            optionList={demoSauceList}
                             type="Sauce"
                             handleClick={handleSauceClick}
                         />
                         {/* ------------------------- Cheese Selection Section ------------------------- */}
                         <OptionList
                             type="Cheese"
-                            optionList={cheeseList}
+                            optionList={demoCheeseList}
                             handleClick={handleCheeseClick}
                         />
                         {/* ------------------------- Topping Selection Section ------------------------- */}
                         <OptionList
-                            optionList={toppingList}
+                            optionList={demoToppingList}
                             type="Topping"
                             handleClick={handleToppingClick}
                         />
                         {/* ------------------------- Vegetable Selection Section ------------------------- */}
                         <OptionList
-                            optionList={vegetableList}
+                            optionList={demoVegetableList}
                             type="Vegetable"
                             handleClick={handleVegetableClick}
                         />

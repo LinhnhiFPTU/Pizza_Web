@@ -10,7 +10,8 @@
     --black: #000;
     --white: #fff;
     --text-color: #333;
-    --container-width: 1400px;
+    --container-width: 1100px;
+    --border-color: #aca7a7;
 }
 
 * {
@@ -50,8 +51,8 @@ a[href] {
     max-width: 100%;
     margin: 0 auto;
     margin-bottom: 24px;
-    padding: 0 12px;
     background-color: transparent;
+    overflow: hidden;
 }
 
 .btn {
@@ -94,8 +95,19 @@ a[href] {
 
 .center-heading {
     text-transform: uppercase;
-    font-size: 8rem;
+    font-size: 6rem;
     line-height: 1;
+}
+
+.center-heading.dark {
+    color: var(--white);
+}
+
+.center-desc {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    font-style: italic;
 }
 
 .navigation-icon {
