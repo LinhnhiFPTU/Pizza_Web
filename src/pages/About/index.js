@@ -12,6 +12,13 @@ function About() {
     const radio1 = useRef();
     const radio2 = useRef();
     const radio3 = useRef();
+    const section1 = useRef();
+    const section2 = useRef();
+    const section3 = useRef();
+    const section4 = useRef();
+    const section5 = useRef();
+    const section6 = useRef();
+
     const [activeMenu, setActiveMenu] = useState(1);
     useEffect(() => {
         if (activeMenu === 1) radio1.current.checked = true;
@@ -34,9 +41,36 @@ function About() {
         };
     }, [activeMenu]);
 
+    useEffect(() => {
+        window.addEventListener('scroll', reveal);
+    }, []);
+
+    function reveal() {
+        var sectionList = [
+            section1.current,
+            section2.current,
+            section3.current,
+            section4.current,
+            section5.current,
+            section6.current,
+        ];
+
+        sectionList.forEach((section) => {
+            var windowHeight = window.innerHeight;
+            var revealTop = section.getBoundingClientRect().top;
+            var revealPoint = 150;
+            if (revealTop < windowHeight - revealPoint) {
+                section.classList.add(cx('active'));
+            } else {
+                section.classList.remove(cx('active'));
+            }
+        });
+    }
+
     return (
         <div className={cx('wrapper')}>
             <section
+                ref={section1}
                 className={`${cx('about-banner-section')} ${cx('section')}`}
             >
                 <div className={cx('about-banner')}>
@@ -47,9 +81,10 @@ function About() {
                 </div>
             </section>
             <section
-                className={`${cx('about-detail-section')} ${cx('section')} ${cx(
-                    'section-1',
-                )}`}
+                ref={section2}
+                className={`${cx('about-detail-section')} ${cx('reveal')} ${cx(
+                    'section',
+                )} ${cx('section-1')}`}
             >
                 <div
                     className={`${cx('container')} ${cx(
@@ -79,7 +114,10 @@ function About() {
                 </div>
             </section>
             <section
-                className={`${cx('about-story-section')} ${cx('section')}`}
+                ref={section3}
+                className={`${cx('about-story-section')} ${cx('reveal')} ${cx(
+                    'section',
+                )}`}
             >
                 <div
                     className={`${cx('container')} ${cx(
@@ -107,9 +145,10 @@ function About() {
                 </div>
             </section>
             <section
+                ref={section4}
                 className={`${cx('about-experience-section')} ${cx(
-                    'section',
-                )} ${cx('section-1')}`}
+                    'reveal',
+                )} ${cx('reveal')} ${cx('section')} ${cx('section-1')}`}
             >
                 <div
                     className={`${cx('container')} ${cx(
@@ -139,7 +178,10 @@ function About() {
                 </div>
             </section>
             <section
-                className={`${cx('about-review-section')} ${cx('section')}`}
+                ref={section5}
+                className={`${cx('about-review-section')} ${cx('reveal')} ${cx(
+                    'section',
+                )}`}
             >
                 <img
                     src={images.separatorDownWhite}
@@ -252,7 +294,10 @@ function About() {
                 ></img>
             </section>
             <section
-                className={`${cx('about-booking-section')} ${cx('section')}`}
+                ref={section6}
+                className={`${cx('about-booking-section')} ${cx('reveal')} ${cx(
+                    'section',
+                )}`}
             >
                 <div className={cx('container')}>
                     <div className={cx('booking-content')}>

@@ -8,6 +8,17 @@
     position: relative;
 }
 
+.reveal {
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
 .about-banner-section {
     background-color: rgba(0, 0, 0, 0.8);
     background-image: url(../../assets/images/blog-7.jpg);
@@ -115,6 +126,7 @@
     .comment-info {
         background-color: var(--white);
         padding: 40px;
+        user-select: none;
         text-align: justify;
         font-style: italic;
         position: relative;
@@ -191,7 +203,6 @@ input[type='radio'] {
 .booking-content {
     display: flex;
     justify-content: space-between;
-
     .booking-center {
         width: 30%;
     }
