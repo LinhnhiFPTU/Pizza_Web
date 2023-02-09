@@ -1,3 +1,4 @@
+// ================= Cursor shape ================
 .cursor {
     z-index: 999;
     position: fixed;
@@ -22,6 +23,69 @@
     transform: translate(-25%, -25%);
     border-radius: 50%;
 }
+// ================= Cursor click animation ================
+.cursor .click-animation {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cursor .click-animation .shape {
+    position: absolute;
+    opacity: 0;
+}
+
+// ================= Circles ================
+.cursor.active .click-animation .shape.circle.big {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #4fb4f8;
+    border-radius: 50%;
+}
+
+.cursor.active .click-animation .shape.circle.small {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #2ca8fa;
+    border-radius: 50%;
+}
+
+.cursor.active .click-animation .shape.circle {
+    animation: click-animation-circle 3s ease-out infinite;
+}
+
+// ================= Triangles ================
+.cursor .click-animation .shape.triangle.yellow {
+    border-style: solid;
+    border-width: 0 5px 10px 5px;
+    border-color: transparent transparent #f9de2d transparent;
+}
+
+.cursor.active .click-animation .shape.triangle.yellow {
+    animation: click-animation-triangle-yellow 3s ease-out infinite;
+}
+
+.cursor .click-animation .shape.triangle.green {
+    border-style: solid;
+    border-width: 0 3.5px 7px 3.5px;
+    border-color: transparent transparent #47eda0 transparent;
+}
+
+.cursor.active .click-animation .shape.triangle.green {
+    animation: click-animation-triangle-green 3s ease-out infinite;
+}
+
+// ================= Disc ================
+.cursor.active .click-animation .shape.disc {
+    width: 8.5px;
+    height: 8.5px;
+    background-color: #d563f8;
+    border-radius: 50%;
+    animation: click-animation-disc 3s ease-out infinite;
+}
+
+// ================= Home Section ================
 
 @keyframes colors {
     0% {
@@ -29,5 +93,57 @@
     }
     100% {
         filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes click-animation-circle {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+
+@keyframes click-animation-triangle-yellow {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+        transform: scale(1.5) translate(30px, -30px) rotate(360deg);
+    }
+}
+
+@keyframes click-animation-triangle-green {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+        transform: scale(1.5) translate(20px, 50px) rotate(360deg);
+    }
+}
+
+@keyframes click-animation-disc {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+        transform: scale(2) translate(-30px, -20px);
     }
 }
