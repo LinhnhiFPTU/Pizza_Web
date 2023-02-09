@@ -8,6 +8,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useRef, useState } from 'react';
 import OptionList from './component/OptionList';
+import axios from 'axios';
+
 const cx = classNames.bind(styles);
 
 function Custom() {
@@ -74,23 +76,16 @@ function Custom() {
         console.log('Cheese: ' + newCheeses);
     }, [sauce, toppings, vegetables, cheeses]);
 
-    // useEffect(() => {
-    //     Promise.all([
-    //         fetch('https://localhost:7072/Pizzon/CustomPizza?option=1'),
-    //         fetch('https://localhost:7072/Pizzon/CustomPizza?option=2'),
-    //         fetch('https://localhost:7072/Pizzon/CustomPizza?option=3'),
-    //         fetch('https://localhost:7072/Pizzon/CustomPizza?option=4'),
-    //     ])
-    //         .then(([sauceslist, cheeseslist, vegetableslist, toppingslist]) => {
-    //             setSauceList(sauceslist);
-    //             setCheeseList(cheeseslist);
-    //             setVegetableList(vegetableslist);
-    //             setToppingList(toppingslist);
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         });
-    // }, []);
+    useEffect(() => {
+        axios('https://localhost:7072/Pizzon/Ingredients')
+            .then((res) => {
+                setSauceList(res.data[0]);
+                setCheeseList(res.data[1]);
+                setToppingList(res.data[2]);
+                setVegetableList(res.data[3]);
+            })
+            .catch((e) => {});
+    }, []);
 
     function handleSauceClick(obj) {
         if (sauce) {
