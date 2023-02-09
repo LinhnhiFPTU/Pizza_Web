@@ -1,0 +1,84 @@
+.cart-container {
+    width: 80%;
+    margin: 50px auto;
+    font-family: 'PT Sans Narrow', sans-serif;
+  }
+  
+  .cart-item {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.163);
+  }
+  
+  .cart-item thead,
+  .cart-item tbody {
+    text-align: center;
+  }
+  
+  .cart-item table tr td {
+    vertical-align: center;
+  
+  }
+  
+  .product-image {
+    width: 150px;
+    height: fit-content;
+    border-radius: 50%;
+    border: hidden;
+  }
+  
+  .product-name {
+    text-align: left;
+  }
+  
+  .product-quantity {
+    width: 100px;
+  }
+  
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+  }
+  
+  .bottom .col-md-6,
+  .bottom .col-md-5 {
+    padding: 0;
+  }
+  
+  .shipping-cart div {
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .shipping-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .total-details {
+    margin: 0;
+    border: 1px solid rgba(128, 128, 128, 0.418);
+  }
+  
+  .cart-total-header {
+    padding: 10px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.418);
+    font-weight: bold;
+  }
+  
+  .items-subtotal,
+  .items-shipping,
+  .amount-payable {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    padding-right: 30px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.418);
+    font-weight: 100;
+  }
+  
+  .items-subtotal div,
+  .items-shipping div,
+  .amount-payable div {
+    color: red;
+  }
