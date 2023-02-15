@@ -1,5 +1,6 @@
 //reset css
 @import 'normalize.css';
+@import './grid.scss';
 
 // import family font
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;300;400;500;600;700&display=swap');
@@ -15,13 +16,16 @@
 }
 
 * {
-    box-sizing: border-box;
+    // box-sizing: border-box;
+    box-sizing: inherit;
     margin: 0;
     padding: 0;
 }
 
 html {
     font-size: 62.5%;
+    line-height: 1.6rem;
+    box-sizing: border-box;
 }
 
 body {
@@ -131,4 +135,8 @@ a[href] {
     position: absolute;
     top: 50%;
     right: 1%;
+}
+
+.full-width{
+    width: 100%;
 }

@@ -53,6 +53,51 @@ const images = {
     about1: require('./about-1.jpg'),
     signature: require('./signature.png'),
     customer1: require('./customer-1.png'),
+
+    aboutPizzon: require('./about-pizzon.png'),
+    background: require('./background.jpg'),
+    chef1: require('./chef-1.jpeg'),
+    chef2: require('./chef-2.jpeg'),
+    chef3: require('./chef-3.jpeg'),
+    chef4: require('./chef-4.jpeg'),
+    chefBg: require('./chef-bg.png'),
+    chefBottomBg: require('./chef-bottom-bg.png'),
+    chefTopBg: require('./chef-top-bg.png'),
+    customerBottomBg: require('./customer-bottom-bg.png'),
+    customerTopBg: require('./customer-top-bg.png'),
+    headerLogo: require('./header-logo.png'),
+    menu1: require('./menu-1.png'),
+    menu2: require('./menu-2.png'),
+    menu3: require('./menu-3.png'),
+
+    menu6: require('./menu-6.png'),
+    menu7: require('./menu-7.png'),
+    menu8: require('./menu-8.png'),
+
+    menuBottomBg: require('./menu-bottom-bg.png'),
+    menuTopBg: require('./menu-top-bg.png'),
+    news1: require('./news-1.jpeg'),
+    news2: require('./news-2.jpeg'),
+    news3: require('./news-3.jpeg'),
+    
+    order1: require('./order-1.svg').default,
+    order2: require('./order-2.svg').default,
+    order3: require('./order-3.svg').default,
+    orderBottom: require('./order-bottom.png'),
+    orderTop: require('./order-top.png'),
+
+    pizza1: require('./pizza-1.png'),
+    pizza2: require('./pizza-2.png'),
+    pizza3: require('./pizza-3.png'),
+    pizza4: require('./pizza-4.png'),
+    pizza5: require('./pizza-5.png'),
+    pizza10: require('./pizza-10.png'),
+    pizza11: require('./pizza-11.png'),
+
+    speciality1: require('./speciality-1.jpeg'),
+    speciality2: require('./speciality-2.jpeg'),
+    speciality3: require('./speciality-3.jpeg'),
+
 };
 
 export default images;
