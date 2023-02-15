@@ -72,7 +72,7 @@ function Home() {
                             </div>
 
                             <div className={cx('container__content-speciality-footer', 'mr-30')}>
-                                <p><a href=''>View More</a></p>
+                                <button className={cx('l-btn', 'orange-l-btn')}>View More</button>
                             </div>
                         </div>
 
@@ -221,7 +221,7 @@ function Home() {
                                         <input type='text' placeholder='Date' className={cx('full-width')} />
                                     </div>
 
-                                    <button className={cx('l-btn')}>Book Now</button>
+                                    <button className={cx('l-btn', 'black-l-btn')}>Book Now</button>
                                 </div>
                             </div>
                         </div>
@@ -242,7 +242,7 @@ function Home() {
                                 <div className={cx('container__content-chef-list-items', 'grid__col', 'lg-col-3')}>
                                     <div className={cx('container__content-chef-list-items-content')}>
                                         <img src={images.chef1} alt='' className={cx('full-width')} />
-                                        <div className='container__content-chef-list-items-content-script'>
+                                        <div className={cx('container__content-chef-list-items-content-script')}>
                                             <h3>John Doe</h3>
                                             <p>Sous Chef</p>
                                         </div>
@@ -252,7 +252,7 @@ function Home() {
                                 <div className={cx('container__content-chef-list-items', 'grid__col', 'lg-col-3')}>
                                     <div className={cx('container__content-chef-list-items-content')}>
                                         <img src={images.chef2} alt='' className={cx('full-width')} />
-                                        <div className='container__content-chef-list-items-content-script'>
+                                        <div className={cx('container__content-chef-list-items-content-script')}>
                                             <h3>John Doe</h3>
                                             <p>Sous Chef</p>
                                         </div>
@@ -262,7 +262,7 @@ function Home() {
                                 <div className={cx('container__content-chef-list-items', 'grid__col', 'lg-col-3')}>
                                     <div className={cx('container__content-chef-list-items-content')}>
                                         <img src={images.chef3} alt='' className={cx('full-width')} />
-                                        <div className='container__content-chef-list-items-content-script'>
+                                        <div className={cx('container__content-chef-list-items-content-script')}>
                                             <h3>John Doe</h3>
                                             <p>Sous Chef</p>
                                         </div>
@@ -272,7 +272,7 @@ function Home() {
                                 <div className={cx('container__content-chef-list-items', 'grid__col', 'lg-col-3')}>
                                     <div className={cx('container__content-chef-list-items-content')}>
                                         <img src={images.chef4} alt='' className={cx('full-width')} />
-                                        <div className='container__content-chef-list-items-content-script'>
+                                        <div className={cx('container__content-chef-list-items-content-script')}>
                                             <h3>John Doe</h3>
                                             <p>Sous Chef</p>
                                         </div>
@@ -296,7 +296,7 @@ function Home() {
                             <div className={cx('container__content-news-list', 'text-center', 'grid__row')}>
                                 <div className={cx('container__content-news-list-items', 'grid__col', 'lg-col-4')}>
                                     <div className={cx('container__content-news-list-items-content')}>
-                                        <div className='container__content-news-list-items-content-photo'>
+                                        <div className={cx('container__content-news-list-items-content-photo')}>
                                             <img src={images.news1} alt='' className={cx('full-width')} />
                                         </div>
                                         <ul className={cx('container__content-news-list-items-content')}>
@@ -413,7 +413,7 @@ function Home() {
                                         consectetur adipiscing elit quisque eget maximus velit, non eleifend libero curabitur
                                         dapibus mauris sed leo cursus aliquetcras suscipit. Sit amet, consectetur adipiscing
                                         elit quisque eget maximus velit, non eleifend libero curabitur</p>
-                                    <button className={cx('l-btn')}>View More</button>
+                                    <button className={cx('l-btn','orange-l-btn')}>View More</button>
                                 </div>
 
                                 <div className={cx('container__content-pizza-photo', 'mr-30', 'grid__col', 'lg-col-6')}>
