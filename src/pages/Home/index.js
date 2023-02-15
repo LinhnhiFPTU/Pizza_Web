@@ -4,18 +4,16 @@ import images from '../../../src/assets/images';
 
 const cx = classNames.bind(styles);
 
-console.log(images)
-
 function Home() {
     return (
         <div>
             <div className={cx('containerHome')}>
                 <div className={cx('container__content', 'mg-top-minus-20')}>
-                    <div className={cx('order-top')}><img src={images.orderTop} alt='' className={cx('full-width')} /></div>
+                    <div><img src={images.orderTop} alt='' className={cx('full-width')} /></div>
                     <div className={cx('container__content-order')}>
                         <div className={cx('grid')}>
-                            <div className={cx('container__content-order-list', 'grid__row')}>
-                                <div className={cx('container__content-order-list-items ', 'lg-col-4 grid__col')}>
+                            <div className={cx('container__content-order-list', 'row')}>
+                                <div className={cx('container__content-order-list-items', 'lg-col-4','c-12' , 'col')}>
                                     <img src={images.order1} alt='' className={cx('logo-format')} />
                                     <h3>ORDER YOUR FOOD</h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius-Lorem ipsum
@@ -23,7 +21,7 @@ function Home() {
                                         amet, consectetur adipisicing elit, sed do eius-</p>
                                 </div>
 
-                                <div className={cx('container__content-order-list-items ', 'lg-col-4 grid__col')}>
+                                <div className={cx('container__content-order-list-items', 'lg-col-4', 'c-12' , 'col')}>
                                     <img src={images.order2} alt='' className={cx('logo-format')} />
                                     <h3>DELIVERY OR PICK UP</h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius-Lorem ipsum
@@ -32,7 +30,7 @@ function Home() {
 
                                 </div>
 
-                                <div className={cx('container__content-order-list-items ', 'lg-col-4 grid__col')}>
+                                <div className={cx('container__content-order-list-items', 'lg-col-4', 'c-12' , 'col')}>
                                     <img src={images.order3} alt='' className={cx('logo-format')} />
                                     <h3>DELICIOUS RECEIPE</h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius-Lorem ipsum
@@ -51,23 +49,23 @@ function Home() {
                         <div className={cx('grid')}>
                             <div className={cx('container__content-header', 'mr-30')}>
                                 <h3>Fresh From Pizzon</h3>
-                                <h2>Our Speciality</h2>
+                                <h2 className={cx('font30')}>Our Speciality</h2>
                             </div>
 
-                            <div className={cx('container__content-speciality-list', 'mr-30', 'grid__row')}>
-                                <div className={cx('container__content-speciality-list-items', 'grid__col', 'lg-col-4')}>
+                            <div className={cx('container__content-speciality-list', 'mr-30', 'row')}>
+                                <div className={cx('container__content-speciality-list-items', 'lg-col-4', 'col', 'c-12')}>
                                     <a href=''><img src={images.speciality1} alt='' className={cx('spec-img', 'rounded')} /></a>
-                                    <p><a href=''>Mexican Green Wave </a></p>
+                                    <p><a href='' className={cx('font12')}>Mexican Green Wave </a></p>
                                 </div>
 
-                                <div className={cx('container__content-speciality-list-items', 'grid__col', 'lg-col-4')}>
+                                <div className={cx('container__content-speciality-list-items', 'lg-col-4', 'col', 'c-12')}>
                                     <a href=''><img src={images.speciality2} alt='' className={cx('spec-img', 'rounded')} /></a>
-                                    <p><a href=''>Double Cheese Pizza</a></p>
+                                    <p><a href='' className={cx('font12')}>Double Cheese Pizza</a></p>
                                 </div>
 
-                                <div className={cx('container__content-speciality-list-items', 'grid__col', 'lg-col-4')}>
+                                <div className={cx('container__content-speciality-list-items','lg-col-4', 'col', 'c-12')}>
                                     <a href=''><img src={images.speciality3} alt='' className={cx('spec-img', 'rounded')} /></a>
-                                    <p><a href=''>Margerita Pizza</a></p>
+                                    <p><a href='' className={cx('font12')}>Margerita Pizza</a></p>
                                 </div>
                             </div>
 
@@ -85,7 +83,7 @@ function Home() {
                         <div className={cx('grid')}>
                             <div className={cx('container__content-header', 'mr-30')}>
                                 <h3>Fresh From Menu</h3>
-                                <h2 className={cx('white-text')}>Our Speciality</h2>
+                                <h2 className={cx('white-text', 'font30')}>Our Speciality</h2>
                             </div>
 
                             <div className={cx('container__content-menu-body', 'mr-30')}>
@@ -115,74 +113,74 @@ function Home() {
                                     </div>
                                 </div>
 
-                                <div className={cx('container__content-menu-list', 'grid__row')}>
-                                    <div className={cx('container__content-menu-list-items', 'grid__col', 'lg-col-3')}>
+                                <div className={cx('container__content-menu-list', 'row')}>
+                                    <div className={cx('container__content-menu-list-items','lg-col-3', 'col', 'c-12')}>
                                         <a href=''><img src={images.menu1} alt=''
                                             className={cx('full-width', 'photo-format')} /></a>
-                                        <h3><a href=''>Margherita Pizza</a></h3>
+                                        <h3><a href='' className={cx('font16')}>Margherita Pizza</a></h3>
                                         <p><a href=''>Lorem Ipsum is simply dummy text of the printing and typesetting
                                             industry.</a></p>
                                         <p>$20.50</p>
                                     </div>
 
-                                    <div className={cx('container__content-menu-list-items', 'grid__col', 'lg-col-3')}>
+                                    <div className={cx('container__content-menu-list-items','lg-col-3', 'col', 'c-12')}>
                                         <a href=''><img src={images.menu2} alt=''
                                             className={cx('full-width', 'photo-format')} /></a>
-                                        <h3><a href=''>Margherita Pizza</a></h3>
+                                        <h3><a href='' className={cx('font16')}>Margherita Pizza</a></h3>
                                         <p><a href=''>Lorem Ipsum is simply dummy text of the printing and typesetting
                                             industry.</a></p>
                                         <p>$20.50</p>
                                     </div>
 
-                                    <div className={cx('container__content-menu-list-items', 'grid__col', 'lg-col-3')}>
+                                    <div className={cx('container__content-menu-list-items', 'lg-col-3', 'col', 'c-12')}>
                                         <a href=''><img src={images.menu3} alt=''
                                             className={cx('full-width', 'photo-format')} /></a>
-                                        <h3><a href=''>Margherita Pizza</a></h3>
+                                        <h3><a href='' className={cx('font16')}>Margherita Pizza</a></h3>
                                         <p><a href=''>Lorem Ipsum is simply dummy text of the printing and typesetting
                                             industry.</a></p>
                                         <p>$20.50</p>
                                     </div>
 
-                                    <div className={cx('container__content-menu-list-items', 'grid__col', 'lg-col-3')}>
+                                    <div className={cx('container__content-menu-list-items',  'lg-col-3', 'col', 'c-12')}>
                                         <a href=''><img src={images.menu6} alt=''
                                             className={cx('full-width', 'photo-format')} /></a>
-                                        <h3><a href=''>Margherita Pizza</a></h3>
+                                        <h3><a href='' className={cx('font16')}>Margherita Pizza</a></h3>
                                         <p><a href=''>Lorem Ipsum is simply dummy text of the printing and typesetting
                                             industry.</a></p>
                                         <p>$20.50</p>
                                     </div>
 
-                                    <div className={cx('container__content-menu-list-items', 'grid__col', 'lg-col-3')}>
+                                    <div className={cx('container__content-menu-list-items',  'lg-col-3', 'col', 'c-12')}>
                                         <a href=''><img src={images.menu7} alt=''
                                             className={cx('full-width', 'photo-format')} /></a>
-                                        <h3><a href=''>Margherita Pizza</a></h3>
+                                        <h3><a href='' className={cx('font16')}>Margherita Pizza</a></h3>
                                         <p><a href=''>Lorem Ipsum is simply dummy text of the printing and typesetting
                                             industry.</a></p>
                                         <p>$20.50</p>
                                     </div>
 
-                                    <div className={cx('container__content-menu-list-items', 'grid__col', 'lg-col-3')}>
+                                    <div className={cx('container__content-menu-list-items',  'lg-col-3', 'col', 'c-12')}>
                                         <a href=''><img src={images.menu8}alt=''
                                             className={cx('full-width', 'photo-format')} /></a>
-                                        <h3><a href=''>Margherita Pizza</a></h3>
+                                        <h3><a href='' className={cx('font16')}>Margherita Pizza</a></h3>
                                         <p><a href=''>Lorem Ipsum is simply dummy text of the printing and typesetting
                                             industry.</a></p>
                                         <p>$20.50</p>
                                     </div>
 
-                                    <div className={cx('container__content-menu-list-items', 'grid__col', 'lg-col-3')}>
+                                    <div className={cx('container__content-menu-list-items',  'lg-col-3', 'col', 'c-12')}>
                                         <a href=''><img src={images.menu2} alt=''
                                             className={cx('full-width', 'photo-format')} /></a>
-                                        <h3><a href=''>Margherita Pizza</a></h3>
+                                        <h3><a href='' className={cx('font16')}>Margherita Pizza</a></h3>
                                         <p><a href=''>Lorem Ipsum is simply dummy text of the printing and typesetting
                                             industry.</a></p>
                                         <p>$20.50</p>
                                     </div>
 
-                                    <div className={cx('container__content-menu-list-items', 'grid__col', 'lg-col-3')}>
+                                    <div className={cx('container__content-menu-list-items',  'lg-col-3', 'col', 'c-12')}>
                                         <a href=''><img src={images.menu1} alt=''
                                             className={cx('full-width', 'photo-format')} /></a>
-                                        <h3><a href=''>Margherita Pizza</a></h3>
+                                        <h3><a href='' className={cx('font16')}>Margherita Pizza</a></h3>
                                         <p><a href=''>Lorem Ipsum is simply dummy text of the printing and typesetting
                                             industry.</a></p>
                                         <p>$20.50</p>
@@ -196,12 +194,12 @@ function Home() {
 
                 <div className={cx('container__content')}>
                     <div className={cx('container__content-booking')}>
-                        <div className={cx('grid')}>
-                            <div className={cx('container__content-booking-body', 'grid__row')}>
+                        <div className={cx('grid', 'book-online')}>
+                            <div className={cx('container__content-booking-body','row')}>
                                 <div
-                                    className={cx('container__content-booking-body-label', 'container__content-header', 'mr-30', 'grid__col lg-col-4')}>
+                                    className={cx('container__content-booking-body-label', 'container__content-header', 'mr-30','lg-col-4', 'col', 'c-12')}>
                                     <h3>Fresh From Pizzon</h3>
-                                    <h2 className=''>BOOK ONLINE</h2>
+                                    <h2 className={cx('font30')}>BOOK ONLINE</h2>
                                     <p>Sit amet, consectetur adipiscing elit quisque eget maximus velit, non eleifend libero
                                         curabitur dapibus mauris sed leo cursus aliquetcras suscipit. Sit amet, consectetur
                                         adipiscing elit quisque eget maximus velit, non eleifend libero curabitur</p>
@@ -211,7 +209,7 @@ function Home() {
                                 </div>
 
                                 <div
-                                    className={cx('container__content-booking-body-form', 'container__content-header', 'mr-30', 'grid__col', 'lg-col-6')}>
+                                    className={cx('container__content-booking-body-form', 'container__content-header', 'mr-30',  'lg-col-6', 'col', 'c-12')}>
                                     <h3>Book A Table</h3>
 
                                     <div>
@@ -235,11 +233,11 @@ function Home() {
                         <div className={cx('grid', 'container__content-chef-body')}>
                             <div className={cx('container__content-header')}>
                                 <h3>Fresh From Pizzon</h3>
-                                <h2 className={cx('white-text')}>OUR BEST CHEF</h2>
+                                <h2 className={cx('white-text','font30')}>OUR BEST CHEF</h2>
                             </div>
 
-                            <div className={cx('container__content-cheft-list', 'text-center', 'grid__row')}>
-                                <div className={cx('container__content-chef-list-items', 'grid__col', 'lg-col-3')}>
+                            <div className={cx('container__content-cheft-list', 'text-center', 'row')}>
+                                <div className={cx('container__content-chef-list-items',  'lg-col-3', 'col', 'c-12')}>
                                     <div className={cx('container__content-chef-list-items-content')}>
                                         <img src={images.chef1} alt='' className={cx('full-width')} />
                                         <div className={cx('container__content-chef-list-items-content-script')}>
@@ -249,7 +247,7 @@ function Home() {
                                     </div>
                                 </div>
 
-                                <div className={cx('container__content-chef-list-items', 'grid__col', 'lg-col-3')}>
+                                <div className={cx('container__content-chef-list-items',  'lg-col-3', 'col', 'c-12')}>
                                     <div className={cx('container__content-chef-list-items-content')}>
                                         <img src={images.chef2} alt='' className={cx('full-width')} />
                                         <div className={cx('container__content-chef-list-items-content-script')}>
@@ -259,7 +257,7 @@ function Home() {
                                     </div>
                                 </div>
 
-                                <div className={cx('container__content-chef-list-items', 'grid__col', 'lg-col-3')}>
+                                <div className={cx('container__content-chef-list-items',  'lg-col-3', 'col', 'c-12')}>
                                     <div className={cx('container__content-chef-list-items-content')}>
                                         <img src={images.chef3} alt='' className={cx('full-width')} />
                                         <div className={cx('container__content-chef-list-items-content-script')}>
@@ -269,7 +267,7 @@ function Home() {
                                     </div>
                                 </div>
 
-                                <div className={cx('container__content-chef-list-items', 'grid__col', 'lg-col-3')}>
+                                <div className={cx('container__content-chef-list-items',  'lg-col-3', 'col', 'c-12')}>
                                     <div className={cx('container__content-chef-list-items-content')}>
                                         <img src={images.chef4} alt='' className={cx('full-width')} />
                                         <div className={cx('container__content-chef-list-items-content-script')}>
@@ -290,11 +288,11 @@ function Home() {
                         <div className={cx('grid')}>
                             <div className={cx('container__content-header')}>
                                 <h3>Recent Events</h3>
-                                <h2 className=''>Latest News</h2>
+                                <h2 className={cx('font30')}>Latest News</h2>
                             </div>
 
-                            <div className={cx('container__content-news-list', 'text-center', 'grid__row')}>
-                                <div className={cx('container__content-news-list-items', 'grid__col', 'lg-col-4')}>
+                            <div className={cx('container__content-news-list', 'text-center','row')}>
+                                <div className={cx('container__content-news-list-items',  'lg-col-4', 'col', 'c-12')}>
                                     <div className={cx('container__content-news-list-items-content')}>
                                         <div className={cx('container__content-news-list-items-content-photo')}>
                                             <img src={images.news1} alt='' className={cx('full-width')} />
@@ -314,7 +312,7 @@ function Home() {
                                     </div>
                                 </div>
 
-                                <div className={cx('container__content-news-list-items', 'grid__col', 'lg-col-4')}>
+                                <div className={cx('container__content-news-list-items',  'lg-col-4', 'col', 'c-12')}>
                                     <div className={cx('container__content-news-list-items-content')}>
                                         <div className={cx('container__content-news-list-items-content-photo')}>
                                             <img src={images.news2} alt='' className={cx('full-width')} />
@@ -334,7 +332,7 @@ function Home() {
                                     </div>
                                 </div>
 
-                                <div className={cx('container__content-news-list-items', 'grid__col', 'lg-col-4')}>
+                                <div className={cx('container__content-news-list-items',  'lg-col-4', 'col', 'c-12')}>
                                     <div className={cx('container__content-news-list-items-content')}>
                                         <div className={cx('container__content-news-list-items-content-photo')}>
                                             <img src={images.news3} alt='' className={cx('full-width')} />
@@ -364,21 +362,21 @@ function Home() {
                 <div className={cx('container__content')}>
                     <div className={cx('container__content-reviews')}>
                         <div className={cx('customer-top-bg')}>
-                            <img src={images.customerTopBg} alt='' className={cx('full-width')} />
+                            <img src={images.customerTopBg} className={cx('full-width')} />
                         </div>
 
                         <div className={cx('grid')}>
                             <div className={cx('container__content-header')}>
                                 <h3>What Say Our Clients</h3>
-                                <h2 className={cx('white-text')}>CUSTOMER REVIEWS</h2>
+                                <h2 className={cx('white-text', 'font30')}>CUSTOMER REVIEWS</h2>
                             </div>
 
-                            <div className={'grid__row container__content-reviews-body'}>
-                                <div className={cx('grid__col', 'container__content-reviews-photo', 'lg-col-2')}>
-                                    <img src={images.customer1} alt='' className={cx('full-width')} />
+                            <div className={cx('container__content-reviews-body', 'row')}>
+                                <div className={cx('container__content-reviews-photo', 'lg-col-2','col','c-12')}>
+                                    <img src={images.customer1} alt='' className={cx('full-width',  'customer-photo')} />
                                     <p>John Doe</p>
                                 </div>
-                                <div className={cx('grid__col', 'container__content-reviews-text', 'lg-col-10')}>
+                                <div className={cx( 'container__content-reviews-text', 'lg-col-10','col','c-12')}>
                                     <i>The one day when the lady met this fellow and they knew it was much more than a hunch the
                                         first mate and his Skipper too will do their comforta The one day when the lady met this
                                         fellow and they knew it was much more than a hunch the first mate and his Skipper too
@@ -403,10 +401,10 @@ function Home() {
                 <div className={cx('container__content')}>
                     <div className={cx('container__content-about')}>
                         <div className={cx('grid')}>
-                            <div className={cx('container__content-about-body', 'grid__row')}>
-                                <div className={cx('container__content-about-body-label', 'container__content-header', 'mr-30', 'grid__col', 'lg-col-5')}>
+                            <div className={cx('container__content-about-body','row')}>
+                                <div className={cx('container__content-about-body-label', 'container__content-header', 'mr-30',  'lg-col-5','col','c-12')}>
                                     <h3>Fresh From Pizzon</h3>
-                                    <h2 className=''>BOOK ONLINE</h2>
+                                    <h2 className={cx('font30')}>BOOK ONLINE</h2>
                                     <p>Sit amet, consectetur adipiscing elit quisque eget maximus velit, non eleifend libero
                                         curabitur dapibus mauris sed leo cursus aliquetcras suscipit. Sit amet, consectetur
                                         adipiscing elit quisque eget maximus velit, non eleifend libero curabitur Sit amet,
@@ -416,7 +414,7 @@ function Home() {
                                     <button className={cx('l-btn','orange-l-btn')}>View More</button>
                                 </div>
 
-                                <div className={cx('container__content-pizza-photo', 'mr-30', 'grid__col', 'lg-col-6')}>
+                                <div className={cx('container__content-pizza-photo', 'mr-30',  'lg-col-6','col','c-12')}>
                                     <img src={images.aboutPizzon} alt='' className={cx('about-pizzon-img')} />
                                 </div>
                             </div>

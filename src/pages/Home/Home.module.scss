@@ -1,4 +1,6 @@
 @import '../../components/GlobalStyle/GlobalStyles.scss';
+@import '../../components/GlobalStyle/grid.scss';
+@import '../../components/GlobalStyle/responsive.scss';
 
 .full-width{
     width: 100%;
@@ -104,16 +106,19 @@
     position: relative;
 }
 
+.container__content{
+}
+
 .container__content-order{
     display: flex;
     align-items: center;
     background-color: var(--primary);
-    height: 400px;
 }
 
 .order-top{
     position: absolute;
-    top: -80px;
+    z-index: 1;
+    border: 1px solid red;
 }
 
 .mg-fix{
@@ -129,11 +134,15 @@
     display:flex;
     justify-content: space-between ;
     text-align: center;
-
+    width: 100%;
 }
 
 .container__content-order-list{
     justify-content: space-around;
+}
+
+.container__content-order-list-items{
+    margin: 4px 0;
 }
 
 .container__content-order-list-items h3{
@@ -304,23 +313,24 @@
 }
 
 .container__content-menu-body-header-list{
-    width: 80%;
+    width: 100%;
+    font-size: 12px;
     display: inline-flex;
     border-radius: 40px;
     margin: auto;
     justify-content: center;
     margin-bottom: 32px;
-}
 
-.container__content-menu-body-header-list-items a{
-    text-decoration: none;
-    border: 1px solid var(--primary);
-    padding: 12px 32px;
-    border-radius: 40px;
-    display: inline-block;
-    color: var(--white);
-    font-weight: 700;
-    text-transform: uppercase;
+    a{
+        text-decoration: none;
+        border: 1px solid var(--primary);
+        padding: 12px 28px;
+        border-radius: 40px;
+        display: inline-block;
+        color: var(--white);
+        font-weight: 700;
+        text-transform: uppercase;
+    }
 }
 
 
@@ -523,15 +533,13 @@
 
 .container__content-about-body-label{
     text-align: left;
+
+    p{
+        line-height: 1.6;
+        font-size: 1.2rem;
+        margin: 20px 0;
+    }
 }
-
-.container__content-about-body-label p{
-    line-height: 1.6;
-    font-size: 1.2rem;
-    margin: 20px 0;
-}
-
-
 
 .container__content-about-body{
     justify-content: space-around;

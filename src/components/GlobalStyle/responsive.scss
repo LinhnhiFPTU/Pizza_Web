@@ -1,0 +1,74 @@
+@media (max-width: 739px){
+
+    .book-online{
+        width: 100% !important;
+        padding: 0 16px;
+    }
+
+    .font12{
+        font-size: 12px !important;
+    }
+
+    .font16{
+        font-size: 16px !important;
+    }
+
+    .font30{
+        font-size: 30px !important;
+    }
+
+    .logo-format{
+        max-width: 70px;
+    }
+
+    .spec-img{
+        height: 130px;
+        width: 130px !important; 
+        padding: 2px !important;
+
+        &:hover{
+            padding: 0 !important;
+        }
+    }
+
+    .customer-photo{
+        width: 100px !important;
+        height: 100px;
+    }
+
+    .container__content-speciality-list-items{
+        p{
+            a{
+                display: inline;
+            }
+        }
+    }
+
+    .container__content-menu-list-items{
+        p{
+            a{
+                font-size: 13px !important;
+            }
+        }
+    }
+
+    .photo-format{
+        height: 130px;
+        width: 130px !important;
+        padding: 8px !important;
+
+        &:hover{
+            padding: 0 !important;
+        }
+    }
+    .container__content-pizza-photo{
+        top: 0 !important; 
+    }
+
+    .container__content-menu-body-header-list{
+        font-size: 8px !important;
+        a{
+            padding: 8px 12px !important;
+        }
+    }
+}
