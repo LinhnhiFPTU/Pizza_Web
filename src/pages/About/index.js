@@ -58,8 +58,8 @@ function About() {
         sectionList.forEach((section) => {
             var windowHeight = window.innerHeight;
             var revealTop = section.getBoundingClientRect().top;
-            var revealPoint = 150;
-            if (revealTop < windowHeight - revealPoint) {
+            var revealPoint = 200;
+            if (revealTop <= windowHeight - revealPoint) {
                 section.classList.add(cx('active'));
             } else {
                 section.classList.remove(cx('active'));
@@ -101,14 +101,14 @@ function About() {
                         <h1 className={cx('center-heading')}>About Pizzon</h1>
                         <p className={cx('center-desc')}>
                             Sit amet, consectetur adipiscing elit quisque eget
-                            maximus velit, non eleifend libero curabitur dapibus
-                            mauris sed leo cursus aliquetcras suscipit. Sit
-                            amet, consectetur adipiscing elit quisque eget
-                            maximus velit, non eleifend libero curabitur Sit
-                            amet, consectetur adipiscing elit quisque eget
-                            maximus velit, non eleifend libero curabitur dapibus
-                            mauris sed leo cursus aliquetcras suscipit. Sit
-                            amet.
+                            maximus velit, non el eifend libero curabitur
+                            dapibus mauris s ed le o cur sus aliquetcras
+                            suscipit. Sit amet, consec tetur adipiscin g elit
+                            quisque eget maximus velit, non eleifend libero
+                            curabitur Si t ame t, consectetur ad ipiscin g elit
+                            quisque eget ma ximus velit, non eleifend libero
+                            curabitur dapibus mauris sed leo cu rsus aliquetcras
+                            suscipit. S it amet.
                         </p>
                     </div>
                 </div>

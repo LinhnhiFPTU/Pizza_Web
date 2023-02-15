@@ -11,7 +11,7 @@
     --black: #000;
     --white: #fff;
     --text-color: #333;
-    --container-width: 1100px;
+    --container-width: 1280px;
     --border-color: #aca7a7;
 }
 
@@ -34,6 +34,10 @@ body {
     line-height: 1.5;
     text-rendering: optimizeSpeed;
     // cursor: none;
+}
+
+Link {
+    color: var(--text-color);
 }
 
 button,
@@ -137,6 +141,6 @@ a[href] {
     right: 1%;
 }
 
-.full-width{
+.full-width {
     width: 100%;
 }

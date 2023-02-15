@@ -41,7 +41,7 @@ function Cursor() {
                 <div
                     className={`${cx('shape')} ${cx('circle')} ${cx('small')}`}
                 ></div>
-                <div
+                {/* <div
                     className={`${cx('shape')} ${cx('triangle')} ${cx(
                         'yellow',
                     )}`}
@@ -51,7 +51,7 @@ function Cursor() {
                         'green',
                     )}`}
                 ></div>
-                <div className={`${cx('shape')} ${cx('disc')} `}></div>
+                <div className={`${cx('shape')} ${cx('disc')} `}></div> */}
             </div>
         </div>
     );
