@@ -905,10 +905,10 @@ function Home() {
                                         'container__content-about-body-label',
                                         'container__content-header',
                                         'mr-30',
-                                        'lg-col-5',
+                                        'lg-col-6',
+                                        'm-6',
                                         'col',
                                         'c-12',
-                                        'm-5'
                                     )}
                                 >
                                     <h3>Fresh From Pizzon</h3>

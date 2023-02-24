@@ -105,7 +105,7 @@
     }
 }
 
-@media (max-width: 739px){
+@media (min-width: 740px) and (max-width: 1023px){
     .footer-content{
         width: 60%;
         text-align: center;
@@ -132,7 +132,8 @@
         justify-content: center;
     }
 }
-@media (min-width: 740px) and (max-width: 1023px){
+
+@media (max-width: 739px){
     .footer-content{
         width: 60%;
         text-align: center;

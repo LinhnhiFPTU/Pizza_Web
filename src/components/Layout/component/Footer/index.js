@@ -90,13 +90,13 @@ function Footer() {
                 </div>
             </div>
             <div className={cx('footer-copyright', 'row')}>
-                <div className={cx('copyright-info', 'col')}>
+                <div className={cx('copyright-info', 'col','c-12')}>
                     <p>
                         © Pizzon all Rights Reserved. Designed by{' '}
                         <a href="https://templatescoder.com/">TemplatesCoder</a>
                     </p>
                 </div>
-                <ul className={cx('copyright-social-list')}>
+                <ul className={cx('copyright-social-list', 'col', 'c-12')}>
                     <li className={cx('copyright-social-item')}>
                         <FontAwesomeIcon icon={faFacebookF}></FontAwesomeIcon>
                     </li>

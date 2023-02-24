@@ -94,7 +94,7 @@ function About() {
                     <div className={cx('detail-img')}>
                         <img src={images.about1} alt="about img" />
                     </div>
-                    <div className={cx('detail-center')}>
+                    <div className={cx('detail-center',)}>
                         <p className={cx('center-sub-heading')}>
                             Delicious Restaurant
                         </p>
