@@ -11,12 +11,25 @@ import {
     faAddressCard,
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 
 const cx = classNames.bind(styles);
 
 function Header() {
+    const headerWrapper = useRef();
+
+    useEffect(() => {
+        document.addEventListener('scroll', (e) => {
+            if (document.body.scrollTop >= 200) {
+                headerWrapper.current.classList.add('scroll');
+            } else {
+                headerWrapper.current.classList.remove('scroll');
+            }
+        });
+    }, []);
+
     return (
-        <div className={cx('wrapper')}>
+        <div ref={headerWrapper} className={cx('wrapper')}>
             <header className={cx('header', 'row')}>
                 <div className={cx('header-brand')}>
                     <img src={images.logo} alt="DSC Pizza"></img>
@@ -339,7 +352,11 @@ function Header() {
                             'action-item',
                         )}
                     >
-                        <img src={images.about1} alt="avatar" className={cx('user-avt')} />
+                        <img
+                            src={images.about1}
+                            alt="avatar"
+                            className={cx('user-avt')}
+                        />
                         <p className={cx('user-username')}>Username</p>
                         <ul className={cx('action-subnav-list')}>
                             <li className={cx('action-subnav-item')}>

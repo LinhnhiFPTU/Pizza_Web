@@ -8,11 +8,12 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 const Cart = () => {
-    const context = CartState();
-    console.log(context);
-    const cart = context.state.products;
-    const dispatch = context.dispatch;
+    const {
+        state: { products },
+        dispatch,
+    } = CartState();
     const [total, setTotal] = useState();
+    const cart = products;
 
     useEffect(() => {
         setTotal(

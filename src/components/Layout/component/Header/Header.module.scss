@@ -1,9 +1,25 @@
 @import '../../../GlobalStyle/grid.scss';
 
-.user-avt{
+.user-avt {
     width: 30px;
     height: 30px;
     border-radius: 100%;
+}
+
+.wrapper {
+    position: fixed;
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    top: 8px;
+    transition: color 0.5s ease-out;
+}
+
+.wrapper.scroll {
+    background-color: var(--black) !important;
 }
 
 .header {
@@ -15,13 +31,8 @@
     color: var(--white);
     width: var(--container-width);
     max-width: 90vw;
-    padding-top: 8px;
-    position: absolute;
-    top: 0;
     right: 50%;
-    transform: translateX(50%);
     user-select: none;
-    z-index: 1;
 }
 
 .header-brand {
@@ -110,7 +121,6 @@
 }
 
 .subnav-item {
-
     .subnav-link {
         color: var(--text-color);
         transition: color 0.2s ease-in;
@@ -262,38 +272,37 @@
     }
 }
 
-@media (max-width: 739px){
-    .header-brand-name{
+@media (max-width: 739px) {
+    .header-brand-name {
         display: none;
     }
-    .header-nav{
+    .header-nav {
         display: none;
     }
-    .header-actions{
+    .header-actions {
         justify-content: right;
-        .action-item{
+        .action-item {
             padding-right: 32px;
         }
     }
-    .header-actions{
-        span{
+    .header-actions {
+        span {
             display: none;
         }
     }
 }
 
-@media (min-width: 740px) and (max-width: 1023px){
-    .header-brand-name{
+@media (min-width: 740px) and (max-width: 1023px) {
+    .header-brand-name {
         display: none;
     }
-    .header-nav{
+    .header-nav {
         display: none;
     }
-    .header-actions{
+    .header-actions {
         justify-content: right;
-        .action-item{
+        .action-item {
             padding: 8px 12px;
         }
     }
-
 }
