@@ -8,13 +8,15 @@ import {
     faLinkedinIn,
     faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
+
+
 const cx = classNames.bind(styles);
 
 function Footer() {
     return (
         <div className={cx('wrapper')}>
-            <div className={cx('footer-content')}>
-                <div className={cx('footer-section')}>
+            <div className={cx('footer-content', 'grid', 'row')}>
+                <div className={cx('footer-section','col', 'lg-col-4','c-12','l-4', 'm-12')}>
                     <div className={cx('section-heading')}>
                         <img src={images.logo} alt=""></img>
                     </div>
@@ -27,7 +29,7 @@ function Footer() {
                         <li className={cx('section-desc-item')}>
                             PHONE -{' '}
                             <span className={cx('active')}>
-                                +91 123 456 789 0 , +91 123 456 789 0
+                                +91 123 456 789 0
                             </span>
                         </li>
                         <li className={cx('section-desc-item')}>
@@ -38,7 +40,7 @@ function Footer() {
                         </li>
                     </ul>
                 </div>
-                <div className={cx('footer-section')}>
+                <div className={cx('footer-section','col', 'lg-col-3','c-12','l-3','m-12')}>
                     <div className={cx('section-heading')}>
                         <h2>Opening hours</h2>
                     </div>
@@ -61,11 +63,11 @@ function Footer() {
                         </li>
                     </ul>
                 </div>
-                <div className={cx('footer-section')}>
+                <div className={cx('footer-section','col', 'lg-col-3','c-12','l-2','m-12')}>
                     <div className={cx('section-heading')}>
                         <h2>Useful links</h2>
                     </div>
-                    <ul className={cx('section-desc-list')}>
+                    <ul className={cx('section-desc-list', 'useful-links')}>
                         <li className={cx('section-desc-item')}>
                             <a href="/">Privacy Policy</a>
                         </li>
@@ -87,8 +89,8 @@ function Footer() {
                     </ul>
                 </div>
             </div>
-            <div className={cx('footer-copyright')}>
-                <div className={cx('copyright-info')}>
+            <div className={cx('footer-copyright', 'row')}>
+                <div className={cx('copyright-info', 'col')}>
                     <p>
                         © Pizzon all Rights Reserved. Designed by{' '}
                         <a href="https://templatescoder.com/">TemplatesCoder</a>

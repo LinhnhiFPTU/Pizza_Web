@@ -31,7 +31,7 @@ function OurSpeciality(){
                                         'container__content-speciality-list-items',
                                         'lg-col-4',
                                         'col',
-                                        'c-12',
+                                        'c-12', 'm-4'
                                     )}
                                 >
                                     <a href="">
@@ -56,7 +56,7 @@ function OurSpeciality(){
                                         'container__content-speciality-list-items',
                                         'lg-col-4',
                                         'col',
-                                        'c-12',
+                                        'c-12', 'm-4'
                                     )}
                                 >
                                     <a href="">
@@ -81,7 +81,7 @@ function OurSpeciality(){
                                         'container__content-speciality-list-items',
                                         'lg-col-4',
                                         'col',
-                                        'c-12',
+                                        'c-12', 'm-4'
                                     )}
                                 >
                                     <a href="">

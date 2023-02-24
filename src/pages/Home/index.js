@@ -149,7 +149,7 @@ function Home() {
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3',
+                                            'lg-col-3', 'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -182,7 +182,7 @@ function Home() {
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3',
+                                            'lg-col-3', 'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -215,7 +215,7 @@ function Home() {
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3',
+                                            'lg-col-3', 'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -248,7 +248,7 @@ function Home() {
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3',
+                                            'lg-col-3', 'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -281,7 +281,7 @@ function Home() {
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3',
+                                            'lg-col-3', 'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -314,7 +314,7 @@ function Home() {
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3',
+                                            'lg-col-3', 'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -347,7 +347,7 @@ function Home() {
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3',
+                                            'lg-col-3', 'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -404,6 +404,7 @@ function Home() {
                                         'container__content-header',
                                         'mr-30',
                                         'lg-col-4',
+                                        'm-4',
                                         'col',
                                         'c-12',
                                     )}
@@ -443,6 +444,7 @@ function Home() {
                                         'container__content-header',
                                         'mr-30',
                                         'lg-col-6',
+                                        'm-6',
                                         'col',
                                         'c-12',
                                     )}
@@ -511,6 +513,7 @@ function Home() {
                                     'container__content-cheft-list',
                                     'text-center',
                                     'row',
+                                    'no-gutters'
                                 )}
                             >
                                 <div
@@ -854,6 +857,7 @@ function Home() {
                                     className={cx(
                                         'container__content-reviews-text',
                                         'lg-col-10',
+                                        'm-9',
                                         'col',
                                         'c-12',
                                     )}
@@ -904,6 +908,7 @@ function Home() {
                                         'lg-col-5',
                                         'col',
                                         'c-12',
+                                        'm-5'
                                     )}
                                 >
                                     <h3>Fresh From Pizzon</h3>
@@ -938,6 +943,7 @@ function Home() {
                                         'container__content-pizza-photo',
                                         'mr-30',
                                         'lg-col-6',
+                                        'm-6',
                                         'col',
                                         'c-12',
                                     )}

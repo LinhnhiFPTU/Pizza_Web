@@ -28,6 +28,7 @@ function Discription(){
                                         'lg-col-4',
                                         'c-12',
                                         'col',
+                                        'm-4'
                                     )}
                                 >
                                     <img
@@ -52,6 +53,7 @@ function Discription(){
                                         'lg-col-4',
                                         'c-12',
                                         'col',
+                                        'm-4'
                                     )}
                                 >
                                     <img
@@ -76,6 +78,7 @@ function Discription(){
                                         'lg-col-4',
                                         'c-12',
                                         'col',
+                                        'm-4'
                                     )}
                                 >
                                     <img

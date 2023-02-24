@@ -17,7 +17,7 @@ const cx = classNames.bind(styles);
 function Header() {
     return (
         <div className={cx('wrapper')}>
-            <header className={cx('header')}>
+            <header className={cx('header', 'row')}>
                 <div className={cx('header-brand')}>
                     <img src={images.logo} alt="DSC Pizza"></img>
                     <p className={cx('header-brand-name')}>DSC Pizza</p>
@@ -310,7 +310,7 @@ function Header() {
                             className={cx('header-icon')}
                             icon={faPhone}
                         />
-                        Contact
+                        <span>Contact</span>
                     </Link>
                     <Link
                         to="/cart"
@@ -320,7 +320,7 @@ function Header() {
                             className={cx('header-icon')}
                             icon={faBagShopping}
                         />
-                        Cart
+                        <span>Cart</span>
                     </Link>
                     <Link
                         to="/login"
@@ -339,7 +339,7 @@ function Header() {
                             'action-item',
                         )}
                     >
-                        <img src="" alt="avatar" className={cx('user-avt')} />
+                        <img src={images.about1} alt="avatar" className={cx('user-avt')} />
                         <p className={cx('user-username')}>Username</p>
                         <ul className={cx('action-subnav-list')}>
                             <li className={cx('action-subnav-item')}>

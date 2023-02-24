@@ -251,7 +251,7 @@ function Banner() {
             {/* <div className={cx('container')}>
             </div> */}
             {/* banner slider end */}
-            {/* manual navigation start */}
+            manual navigation start
             <div className={cx('navigation-manual')}>
                 <label
                     htmlFor={cx('radio1')}

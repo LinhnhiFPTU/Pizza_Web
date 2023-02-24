@@ -1,3 +1,11 @@
+@import '../../../GlobalStyle/grid.scss';
+
+.user-avt{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+
 .header {
     display: flex;
     align-items: center;
@@ -102,6 +110,7 @@
 }
 
 .subnav-item {
+
     .subnav-link {
         color: var(--text-color);
         transition: color 0.2s ease-in;
@@ -251,4 +260,40 @@
     to {
         opacity: 1;
     }
+}
+
+@media (max-width: 739px){
+    .header-brand-name{
+        display: none;
+    }
+    .header-nav{
+        display: none;
+    }
+    .header-actions{
+        justify-content: right;
+        .action-item{
+            padding-right: 32px;
+        }
+    }
+    .header-actions{
+        span{
+            display: none;
+        }
+    }
+}
+
+@media (min-width: 740px) and (max-width: 1023px){
+    .header-brand-name{
+        display: none;
+    }
+    .header-nav{
+        display: none;
+    }
+    .header-actions{
+        justify-content: right;
+        .action-item{
+            padding: 8px 12px;
+        }
+    }
+
 }
