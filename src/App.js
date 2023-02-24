@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRoutes } from './routes';
 import { DefaultLayout } from './components/Layout';
-
+import Context from './context/Context';
 function App() {
     return (
         <Router>
@@ -16,7 +16,9 @@ function App() {
                                 path={route.path}
                                 element={
                                     <Layout>
-                                        <Page />
+                                        <Context>
+                                            <Page />
+                                        </Context>
                                     </Layout>
                                 }
                             ></Route>
