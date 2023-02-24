@@ -16,6 +16,8 @@ const Cart = () => {
         );
     }, [cart]);
 
+    console.log(cart);
+
     return (
         <div className="cart-container">
             <div className="product-container">
