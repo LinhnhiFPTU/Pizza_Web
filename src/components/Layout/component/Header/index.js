@@ -18,14 +18,18 @@ const cx = classNames.bind(styles);
 function Header() {
     const headerWrapper = useRef();
 
+    function handleScroll(e) {
+        const position = window.scrollY;
+        if (position > 50) {
+            headerWrapper.current.classList.add(cx('scroll'));
+        } else {
+            headerWrapper.current.classList.remove(cx('scroll'));
+        }
+    }
+
     useEffect(() => {
-        document.addEventListener('scroll', (e) => {
-            if (document.body.scrollTop >= 200) {
-                headerWrapper.current.classList.add('scroll');
-            } else {
-                headerWrapper.current.classList.remove('scroll');
-            }
-        });
+        document.addEventListener('scroll', handleScroll);
+        return window.removeEventListener('scroll', handleScroll);
     }, []);
 
     return (

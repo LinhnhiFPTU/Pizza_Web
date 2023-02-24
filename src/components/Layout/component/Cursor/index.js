@@ -24,7 +24,6 @@ function Cursor() {
         document.addEventListener('click', (e) => {
             let cursorClone = cursor.current.cloneNode(true);
             cursorClone.classList.add(cx('active'));
-            console.log(cursorClone);
             document.querySelector('body').appendChild(cursorClone);
             setTimeout(() => {
                 cursorClone.remove();
