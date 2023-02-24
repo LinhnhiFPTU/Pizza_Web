@@ -391,8 +391,8 @@ function Custom() {
                     icon={faChevronRight}
                 />
             </div>
-            <div className={cx('custom-content')}>
-                <div className={cx('custom-product-view')}>
+            <div className={cx('custom-content', 'row')}>
+                <div className={cx('custom-product-view', 'col', 'lg-col-6', 'c-12')}>
                     <img src={images.pizzaBase} alt="" />
                     <div className={cx('pizza-topping')}>
                         {/* -------------------- Chillies Ingredients list ------------------ */}
@@ -981,7 +981,8 @@ function Custom() {
                         </div>
                     </div>
                 </div>
-                <div className={cx('custom-option-view')}>
+
+                <div className={cx('custom-option-view','col', 'lg-col-6', 'c-12')}>
                     <div className={cx('custom-option-center')}>
                         <h2 className={cx('option-center-heading')}>
                             Customize your own pizza here!
