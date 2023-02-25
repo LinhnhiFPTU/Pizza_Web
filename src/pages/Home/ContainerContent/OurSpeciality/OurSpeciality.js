@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import styles from './OurSpeciality.scss';
+import styles from './OurSpeciality.module.scss';
 import images from '../../../../assets/images';
 
 const cx = classNames.bind(styles);

@@ -17,6 +17,7 @@ function OptionList({ optionList, handleClick, type }) {
                             <input
                                 data-price={optionItem.price}
                                 value={optionItem.Id}
+                                name={optionItem.name}
                                 onClick={(e) => handleClick(e.target)}
                                 className={`${cx('selection-checkbox')}`}
                                 type="checkbox"
