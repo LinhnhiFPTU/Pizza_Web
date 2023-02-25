@@ -4,16 +4,16 @@ import { AiFillDelete } from 'react-icons/ai';
 import { CartState } from '../../context/Context';
 import styles from './Cart.module.scss';
 import classNames from 'classnames/bind';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const cx = classNames.bind(styles);
 
 const Cart = () => {
     const {
-        state: { products },
+        state: { cart },
         dispatch,
     } = CartState();
     const [total, setTotal] = useState();
-    const cart = products;
 
     useEffect(() => {
         setTotal(
@@ -56,8 +56,8 @@ const Cart = () => {
                                         </td>
                                         <td className={cx('product-quantity')}>
                                             <Form.Control
+                                                type="number"
                                                 as="select"
-                                                value={prod.qty}
                                                 onChange={(e) =>
                                                     dispatch({
                                                         type: 'CHANGE_CART_QTY',
@@ -72,14 +72,16 @@ const Cart = () => {
                                                     ...Array(
                                                         prod.inStock,
                                                     ).keys(),
-                                                ].map((x) => (
-                                                    <option key={x + 1}>
-                                                        {x + 1}
+                                                ].map((x, i) => (
+                                                    <option key={i + 1}>
+                                                        {i + 1}
                                                     </option>
                                                 ))}
                                             </Form.Control>
                                         </td>
-                                        <td className={cx('sub-total')}>$ 0</td>
+                                        <td className={cx('sub-total')}>
+                                            $ {prod.price * prod.qty}
+                                        </td>
                                         <td>
                                             <Button
                                                 type="button"
