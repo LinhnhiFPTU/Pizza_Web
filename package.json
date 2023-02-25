@@ -14,11 +14,16 @@
         "@testing-library/user-event": "^13.5.0",
         "@tippyjs/react": "^4.2.6",
         "axios": "^1.3.2",
+        "bootstrap": "^4.6.0",
         "classnames": "^2.3.2",
         "clsx": "^1.2.1",
         "normalize.css": "^8.0.1",
         "react": "^18.2.0",
+<<<<<<< HEAD
         "react-bootstrap": "^2.7.1",
+=======
+        "react-bootstrap": "^2.7.2",
+>>>>>>> c9226e30ac5e8719d9c5a382df70a4a6ee8f6148
         "react-dom": "^18.2.0",
         "react-icons": "^4.7.1",
         "react-router-dom": "^6.4.5",

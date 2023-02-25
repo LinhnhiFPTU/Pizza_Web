@@ -2,19 +2,28 @@ import { createContext, useContext, useReducer } from 'react';
 import { cartReducer } from './Reducers';
 
 const Cart = createContext();
-console.log(Cart);
 
 const Context = ({ children }) => {
-    const products = [...Array(20)].map(() => ({
-        id: 1,
+    const products = [...Array(20)].map((curr, i) => ({
+        id: i,
         name: 'Product name',
         price: 2,
         image: '',
+        inStock: 100,
+    }));
+
+    const cart = [...Array(10)].map((curr, i) => ({
+        id: i,
+        name: 'Product name',
+        price: i + 10,
+        image: '',
+        qty: i + 2,
+        inStock: 100,
     }));
 
     const [state, dispatch] = useReducer(cartReducer, {
         products: products,
-        cart: [],
+        cart: [...cart],
     });
 
     return (

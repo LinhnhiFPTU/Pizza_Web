@@ -362,7 +362,7 @@ function Header() {
                             className={cx('user-avt')}
                         />
                         <p className={cx('user-username')}>Username</p>
-                        <ul className={cx('action-subnav-list')}>
+                        <ul className={cx('action-subnav-list', 'subnav')}>
                             <li className={cx('action-subnav-item')}>
                                 About me
                                 <FontAwesomeIcon
