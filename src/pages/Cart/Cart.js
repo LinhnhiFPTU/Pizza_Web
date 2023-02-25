@@ -21,6 +21,8 @@ const Cart = () => {
         );
     }, [cart]);
 
+    console.log(cart);
+
     return (
         <div className={cx('cart-container')}>
             <div className={cx('product-container')}>
