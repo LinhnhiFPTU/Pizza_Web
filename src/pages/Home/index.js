@@ -5,7 +5,6 @@ import Banner from './Banner';
 import Discription from './ContainerContent/Discription/Discription';
 import OurSpeciality from './ContainerContent/OurSpeciality/OurSpeciality';
 
-
 const cx = classNames.bind(styles);
 
 function Home() {
@@ -13,8 +12,8 @@ function Home() {
         <div>
             <Banner />
             <div className={cx('containerHome')}>
-                <Discription/>
-                <OurSpeciality/>
+                <Discription />
+                <OurSpeciality />
                 <div className={cx('container__content')}>
                     <div className={cx('container__content-menu')}>
                         <div>
@@ -58,7 +57,7 @@ function Home() {
                                                 'container__content-menu-body-header-list-items',
                                             )}
                                         >
-                                            <a href="" className="m-btn">
+                                            <a href="" className={cx('m-btn')}>
                                                 All
                                             </a>
                                         </div>
@@ -149,7 +148,8 @@ function Home() {
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3', 'm-3',
+                                            'lg-col-3',
+                                            'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -182,7 +182,8 @@ function Home() {
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3', 'm-3',
+                                            'lg-col-3',
+                                            'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -215,7 +216,8 @@ function Home() {
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3', 'm-3',
+                                            'lg-col-3',
+                                            'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -248,7 +250,8 @@ function Home() {
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3', 'm-3',
+                                            'lg-col-3',
+                                            'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -281,7 +284,8 @@ function Home() {
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3', 'm-3',
+                                            'lg-col-3',
+                                            'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -314,7 +318,8 @@ function Home() {
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3', 'm-3',
+                                            'lg-col-3',
+                                            'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -347,7 +352,8 @@ function Home() {
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3', 'm-3',
+                                            'lg-col-3',
+                                            'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -513,7 +519,7 @@ function Home() {
                                     'container__content-cheft-list',
                                     'text-center',
                                     'row',
-                                    'no-gutters'
+                                    'no-gutters',
                                 )}
                             >
                                 <div
