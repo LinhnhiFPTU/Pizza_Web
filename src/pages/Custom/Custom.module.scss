@@ -1,3 +1,6 @@
+@import './responsive.scss';
+@import '../../components/GlobalStyle/grid.scss';
+
 .wrapper {
     background: url(../../assets/images/background3.jpg);
     color: var(--white);

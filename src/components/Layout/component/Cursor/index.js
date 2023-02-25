@@ -24,7 +24,6 @@ function Cursor() {
         document.addEventListener('click', (e) => {
             let cursorClone = cursor.current.cloneNode(true);
             cursorClone.classList.add(cx('active'));
-            console.log(cursorClone);
             document.querySelector('body').appendChild(cursorClone);
             setTimeout(() => {
                 cursorClone.remove();
@@ -41,7 +40,7 @@ function Cursor() {
                 <div
                     className={`${cx('shape')} ${cx('circle')} ${cx('small')}`}
                 ></div>
-                <div
+                {/* <div
                     className={`${cx('shape')} ${cx('triangle')} ${cx(
                         'yellow',
                     )}`}
@@ -51,7 +50,7 @@ function Cursor() {
                         'green',
                     )}`}
                 ></div>
-                <div className={`${cx('shape')} ${cx('disc')} `}></div>
+                <div className={`${cx('shape')} ${cx('disc')} `}></div> */}
             </div>
         </div>
     );

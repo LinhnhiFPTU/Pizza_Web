@@ -1,0 +1,381 @@
+.home-banner {
+    position: relative;
+    padding-top: 30px;
+    color: var(--white);
+    background: url(../../../assets/images/background3.jpg);
+    min-height: 850px;
+    padding-bottom: 60px;
+}
+
+.banner {
+    width: 25%;
+    transition: 1.5s;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.banner-1 {
+    justify-content: center;
+}
+
+.banner-2 {
+    flex-direction: column;
+    padding-top: 80px;
+    row-gap: 70px;
+}
+
+.banner-3 {
+    justify-content: center;
+    column-gap: 60px;
+}
+
+.home-slider {
+    height: 800px;
+    width: 100%;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.home-slides {
+    width: 400%;
+    height: 800px;
+    display: flex;
+
+    & input {
+        display: none;
+    }
+}
+
+// ----------------------------------------- Banner manual navigation ---------------------------------------
+.navigation-manual {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+.manual-btn {
+    border: 2px solid var(--primary-bold);
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child) {
+    margin-right: 40px;
+}
+
+.manual-btn:hover {
+    background-color: var(--primary-bold);
+}
+
+#radio1:checked ~ .banner-1 {
+    margin-left: 0;
+}
+
+// ----------------- Banner 1 Checked animation -----------------------------
+#radio1:checked ~ .banner-1 .pizza-toping {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out 2.5s forwards;
+}
+
+#radio1:checked ~ .banner-1 .pizza-banner-img {
+    opacity: 0;
+    animation: flyRightIn 1.5s ease-in-out 1s forwards;
+}
+
+#radio1:checked ~ .banner-1 .banner-center {
+    opacity: 0;
+    animation: flyLeftIn 1.5s ease-in-out 1.5s forwards;
+}
+
+// ------------------- Banner 2 Checked animation ---------------------------
+#radio2:checked ~ .banner-1 {
+    margin-left: -25%;
+}
+
+// ------------------- Banner 3 Checked animation ---------------------------
+#radio3:checked ~ .banner-1 {
+    margin-left: -50%;
+}
+
+// ----------------------------------------- Banner auto navigation ---------------------------------------
+.navigation-auto {
+    position: absolute;
+    display: flex;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: center;
+    z-index: 1;
+}
+
+.navigation-auto div {
+    border: 2px solid var(--primary-bold);
+    padding: 8px;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.navigation-auto div:not(:last-child) {
+    margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+    background-color: var(--primary-bold);
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+    background-color: var(--primary-bold);
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+    background-color: var(--primary-bold);
+}
+
+// ------------------------------------ Banner Navigation --------------------------------------------
+
+.navigation-icon {
+    color: var(--primary);
+    font-size: 5rem;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+.navigation-icon.left {
+    position: absolute;
+    top: 50%;
+    left: 1%;
+}
+
+.navigation-icon.right {
+    position: absolute;
+    top: 50%;
+    right: 1%;
+}
+
+// ------------------------------------- Banner Images ------------------------------------------------
+
+// ---------------- Banner 1 ---------------------
+.banner-1 .all-images-banner {
+    position: relative;
+}
+
+.banner-1 .pizza-banner-img {
+    max-width: 100%;
+}
+
+.banner-1 .pizza-toping {
+    position: absolute;
+}
+
+.banner-1 .toping-1 {
+    top: -80px;
+    right: -30px;
+}
+
+.banner-1 .toping-2 {
+    top: -30px;
+    right: 430px;
+}
+
+.banner-1 .toping-3 {
+    top: 70px;
+    right: 510px;
+}
+
+.banner-1 .toping-4 {
+    bottom: -65px;
+    right: 230px;
+}
+
+.banner-1 .toping-5 {
+    bottom: -70px;
+    right: 10px;
+}
+
+.banner-1 .toping-6 {
+    bottom: 60px;
+    right: -30px;
+}
+
+//  ----------------- Banner 2 -------------------------
+.banner-2 .all-images-banner {
+    position: relative;
+}
+
+.banner-2 .pizza-toping {
+    position: absolute;
+}
+
+.banner-2 .toping-1 {
+    top: 30px;
+    right: -120px;
+}
+
+.banner-2 .toping-2 {
+    top: 290px;
+    right: -40px;
+}
+
+.banner-2 .toping-3 {
+    top: 29px;
+    right: 510px;
+}
+
+.banner-2 .toping-4 {
+    top: 220px;
+    right: 800px;
+}
+
+//  ----------------- Banner 3 -------------------------
+.banner-3 .all-images-banner {
+    position: relative;
+}
+
+.banner-3 .pizza-banner-img {
+    max-width: 100%;
+}
+
+.banner-3 .pizza-toping {
+    position: absolute;
+}
+
+.banner-3 .toping-1 {
+    top: -30px;
+    left: 100px;
+}
+
+.banner-3 .toping-2 {
+    bottom: -10px;
+    left: 0;
+}
+
+.banner-3 .toping-3 {
+    top: -10px;
+    right: 50px;
+}
+
+.banner-3 .toping-4 {
+    bottom: -30px;
+    right: -10px;
+}
+
+.banner-3 .toping-5 {
+    top: 50px;
+    right: -40px;
+}
+
+.banner-3 .toping-6 {
+    top: 40px;
+    left: -10px;
+}
+// ------------------------ Banner Center -------------------------------------
+
+// ------------------ Banner 1 Center -----------------
+.banner-1 .banner-center {
+    width: 40%;
+}
+
+.banner-1 .banner-heading {
+    text-transform: uppercase;
+    font-size: 15rem;
+    line-height: 1.2;
+}
+
+.banner-1 .banner-sub-heading {
+    text-transform: uppercase;
+    font-size: 2.4rem;
+    color: var(--primary);
+    letter-spacing: 1rem;
+}
+
+// ------------------ Banner 2 Center -----------------
+.banner-2 .banner-center {
+    text-align: center;
+}
+
+.banner-2 .banner-heading {
+    text-transform: uppercase;
+    font-size: 15rem;
+    line-height: 1.2;
+}
+
+.banner-2 .banner-sub-heading {
+    text-transform: uppercase;
+    font-size: 2.4rem;
+    color: var(--primary);
+    letter-spacing: 1rem;
+}
+
+// ------------------ Banner 3 Center -----------------
+.banner-3 .banner-center {
+    width: 40%;
+}
+
+.banner-3 .banner-heading {
+    text-transform: uppercase;
+    font-size: 15rem;
+    line-height: 1.2;
+}
+
+.banner-3 .banner-sub-heading {
+    text-transform: uppercase;
+    font-size: 2.4rem;
+    color: var(--primary);
+    letter-spacing: 1rem;
+}
+// ------------------------ Banner Footer -------------------------------------
+.banner-footer {
+    position: absolute;
+    bottom: 0;
+    background-color: transparent;
+}
+
+.banner-footer img {
+    background-color: transparent;
+    color: transparent;
+    width: 100%;
+    margin-bottom: -6px;
+}
+// ------------------------ Banner Keyframes ----------------------------------
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes flyLeftIn {
+    from {
+        transform: scale(0.8) translateX(-150%);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1) translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes flyRightIn {
+    from {
+        transform: scale(0) translateX(100%);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1) translateX(0);
+        opacity: 1;
+    }
+}

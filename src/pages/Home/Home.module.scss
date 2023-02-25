@@ -106,7 +106,9 @@
     position: relative;
 }
 
-.container__content{
+.orderTop{
+    position: absolute;
+    top: -100px;
 }
 
 .container__content-order{
@@ -531,9 +533,15 @@
     font-size: 1.2rem;
 }
 
+@media (min-width: 740px) and (max-width: 1023px) {
+    .container__content-booking-body-label{
+        margin-left: 5%;
+    }
+}
+
 .container__content-about-body-label{
     text-align: left;
-
+    margin-left: 8px;
     p{
         line-height: 1.6;
         font-size: 1.2rem;
