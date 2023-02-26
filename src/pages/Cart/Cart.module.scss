@@ -24,85 +24,97 @@
 
 .cart-container {
     width: 80%;
-    margin: 50px auto;
+    margin: 100px auto;
     font-family: 'PT Sans Narrow', sans-serif;
-  }
-  
-  .cart-item {
+}
+
+.cart-item {
     border-bottom: 1px solid rgba(128, 128, 128, 0.163);
-  }
-  
-  .cart-item thead,
-  .cart-item tbody {
+    padding-bottom: 20px;
+}
+
+
+.cart-item thead th,.cart-item tbody td {
+    padding: 15px;
+    vertical-align: middle;
+}
+
+.cart-item thead,
+.cart-item tbody {
     text-align: center;
-  }
-  
-  .cart-item table tr td {
-    vertical-align: center;
-  
-  }
-  
-  .product-image {
+}
+
+.cart-item thead tr th:nth-child(2) {
+    text-align: left;
+}
+
+.product-image {
     width: 150px;
     height: fit-content;
     border-radius: 50%;
     border: hidden;
-  }
-  
-  .product-name {
+}
+
+.product-name {
     text-align: left;
-  }
-  
-  .product-quantity {
+}
+
+
+.product-quantity {
     width: 100px;
-  }
-  
-  .bottom {
+}
+
+.bottom {
     display: flex;
     justify-content: space-between;
     margin: 30px 0;
-  }
-  
-  .bottom .col-md-6,
-  .bottom .col-md-5 {
+    padding: 0 0;
+    font-size: 15px;
+}
+
+.col-lg-12 {
     padding: 0;
-  }
-  
-  .shipping-cart div {
+}
+
+.shipping-cart {
+    padding: 0;
+}
+
+.shipping-cart div {
     font-weight: 700;
     margin-bottom: 10px;
-  }
-  
-  .shipping-details {
+}
+
+.shipping-details {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-  }
-  
-  .total-details {
+}
+
+.total-details {
     margin: 0;
     border: 1px solid rgba(128, 128, 128, 0.418);
-  }
-  
-  .cart-total-header {
+}
+
+.cart-total-header {
     padding: 10px;
     border-bottom: 1px solid rgba(128, 128, 128, 0.418);
     font-weight: bold;
-  }
-  
-  .items-subtotal,
-  .items-shipping,
-  .amount-payable {
+}
+
+.items-subtotal,
+.items-shipping,
+.amount-payable {
     display: flex;
     justify-content: space-between;
     padding: 10px;
     padding-right: 30px;
     border-bottom: 1px solid rgba(128, 128, 128, 0.418);
     font-weight: 100;
-  }
-  
-  .items-subtotal div,
-  .items-shipping div,
-  .amount-payable div {
+}
+
+.items-subtotal div,
+.items-shipping div,
+.amount-payable div {
     color: red;
-  }
+}
