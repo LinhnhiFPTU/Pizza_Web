@@ -84,7 +84,7 @@ const Cart = () => {
                                         <td className={cx('sub-total')}>
                                             $ {prod.price * prod.qty}
                                         </td>
-                                        <td>
+                                        <td className={cx('delete-icon')}>
                                             <Button
                                                 type="button"
                                                 variant="light"
@@ -106,27 +106,27 @@ const Cart = () => {
                 </ListGroup>
             </div>
 
-            <div className={cx('bottom')}>
-                <div className={cx('col-md-6', 'shipping-cart')}>
+            <div className={cx('bottom', 'col-lg-12')}>
+                <div className={cx('col-lg-6', 'shipping-cart')}>
                     <div>ESTIMATE SHIPPING AND TAX</div>
-                    <Form.Control className={cx('col-md-12')} as="select">
+                    <Form.Control className={cx('col-lg-12')} as="select">
                         <option value="">Select Country</option>
                         <option value="">French</option>
                         <option value="">England</option>
                         <option value="">Vietnam</option>
                     </Form.Control>
                     <div className={cx('shipping-details')}>
-                        <Form.Control className={cx('col-md-5')} as="select">
+                        <Form.Control className={cx('col-lg-6')} as="select">
                             <option value="">Select State/Province</option>
                             <option value="">---</option>
                         </Form.Control>
-                        <Form.Control className={cx('col-md-5')} as="select">
+                        <Form.Control className={cx('col-lg-6')} as="select">
                             <option value="">Select City</option>
                             <option value="">---</option>
                         </Form.Control>
                     </div>
                 </div>
-                <div className={cx('col-md-5', 'total-details')}>
+                <div className={cx('col-lg-6', 'total-details')}>
                     <div className={cx('cart-filters')}>
                         <div className={cx('cart-total-header')}>
                             Cart Total
@@ -137,7 +137,7 @@ const Cart = () => {
                         </div>
                         <div className={cx('items-shipping')}>
                             Shipping
-                            <div>$30</div>
+                            <div>$0</div>
                         </div>
                         <div className={cx('amount-payable')}>
                             Amout Payable
