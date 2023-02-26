@@ -1,5 +1,6 @@
 import { createContext, useContext, useReducer } from 'react';
 import { cartReducer } from './Reducers';
+import images from '../assets/images';
 
 const Cart = createContext();
 
@@ -8,7 +9,7 @@ const Context = ({ children }) => {
         id: i,
         name: 'Product name',
         price: 2,
-        image: '',
+        image: images.onion,
         inStock: 100,
     }));
 
@@ -16,7 +17,7 @@ const Context = ({ children }) => {
         id: i,
         name: 'Product name',
         price: i + 10,
-        image: '',
+        image: images.onion,
         qty: i + 2,
         inStock: 100,
     }));

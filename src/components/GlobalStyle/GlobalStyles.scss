@@ -67,15 +67,16 @@ a[href] {
 .btn {
     border: none;
     background-color: #eee;
-    padding: 18px 12px;
+    padding: 12px 8px;
     border-radius: 25px;
     min-width: 140px;
     text-align: center;
     font-weight: 600;
     text-transform: uppercase;
-    opacity: 0.8;
+    transition: 0.4s ease-out;
     &:hover {
-        opacity: 1;
+        background-color: var(--text-color);
+        color: #eee;
         cursor: pointer;
     }
 }
@@ -83,6 +84,12 @@ a[href] {
 .btn.btn-primary {
     background-color: var(--primary);
     color: var(--white);
+    border: 2px solid var(--primary);
+    transition: 0.4s ease-out;
+    &:hover {
+        background-color: var(--white);
+        color: var(--primary);
+    }
 }
 
 .btn.btn-dark {

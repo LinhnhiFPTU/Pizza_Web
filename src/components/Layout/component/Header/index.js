@@ -12,12 +12,17 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
+import { useCookies } from 'react-cookie';
 
 const cx = classNames.bind(styles);
 
 function Header() {
     const headerWrapper = useRef();
+    const userAction = useRef();
+    const loginAction = useRef();
+    const [cookies, setCookie] = useCookies();
 
+    // ================================= Handle Scroll Animation =====================================
     function handleScroll(e) {
         const position = window.scrollY;
         if (position > 50) {
@@ -32,12 +37,23 @@ function Header() {
         return window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // ======================= Handle Getting User Cookie ==========================================
+    // useEffect(() => {
+    //     if (cookies['.AspNetCore.Cookies'] === undefined) {
+    //         userAction.current.classList.add(cx('hidden'));
+    //         loginAction.current.classList.remove(cx('hidden'));
+    //     } else {
+    //         userAction.current.classList.remove(cx('hidden'));
+    //         loginAction.current.classList.add(cx('hidden'));
+    //     }
+    // }, [cookies]);
+
     return (
         <div ref={headerWrapper} className={cx('wrapper')}>
             <header className={cx('header', 'row')}>
                 <div className={cx('header-brand')}>
                     <img src={images.logo} alt="DSC Pizza"></img>
-                    <p className={cx('header-brand-name')}>DSC Pizza</p>
+                    <p className={cx('header-brand-name')}>Pizzon</p>
                 </div>
                 <nav className={cx('header-nav')}>
                     {/* -------------------------------------- Header Navbar ------------------------------------- */}
@@ -340,6 +356,7 @@ function Header() {
                         <span>Cart</span>
                     </Link>
                     <Link
+                        ref={loginAction}
                         to="/login"
                         className={cx('header-user', 'action-item', 'hidden')}
                     >
@@ -350,6 +367,7 @@ function Header() {
                         Log In
                     </Link>
                     <div
+                        ref={userAction}
                         className={cx(
                             'header-user',
                             'user-action',

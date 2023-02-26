@@ -21,8 +21,6 @@ const Cart = () => {
         );
     }, [cart]);
 
-    console.log(cart);
-
     return (
         <div className={cx('cart-container')}>
             <div className={cx('product-container')}>
@@ -60,6 +58,7 @@ const Cart = () => {
                                             <Form.Control
                                                 type="number"
                                                 as="select"
+                                                value={'currentValue'}
                                                 onChange={(e) =>
                                                     dispatch({
                                                         type: 'CHANGE_CART_QTY',
@@ -75,7 +74,14 @@ const Cart = () => {
                                                         prod.inStock,
                                                     ).keys(),
                                                 ].map((x, i) => (
-                                                    <option key={i + 1}>
+                                                    <option
+                                                        value={
+                                                            i + 1 === prod.qty
+                                                                ? 'currentValue'
+                                                                : ''
+                                                        }
+                                                        key={i + 1}
+                                                    >
                                                         {i + 1}
                                                     </option>
                                                 ))}
@@ -106,7 +112,11 @@ const Cart = () => {
                 </ListGroup>
             </div>
 
+<<<<<<< HEAD
             <div className={cx('bottom', 'col-lg-12')}>
+=======
+            <div className={cx('bottom')}>
+>>>>>>> b07bdf58df0fa8dec2bfaffc03f85ce6d118c0de
                 <div className={cx('col-lg-6', 'shipping-cart')}>
                     <div>ESTIMATE SHIPPING AND TAX</div>
                     <Form.Control className={cx('col-lg-12')} as="select">

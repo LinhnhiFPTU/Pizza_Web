@@ -1,46 +1,46 @@
 @import './responsive.scss';
 
-.full-width{
+.full-width {
     width: 100%;
 }
 
-.text-center{
+.text-center {
     text-align: center;
 }
 
-.spec-img{
+.spec-img {
     width: 100%;
     padding: 12px;
     transition: all 400ms ease;
 
-    &:hover{
+    &:hover {
         padding: 0;
         margin: 0;
     }
 }
 
-.container__content-order-list{
+.container__content-order-list {
     padding: 80px 0;
 }
 
-.mg-top-minus-20{
+.mg-top-minus-20 {
     margin-top: -20px;
 }
 
-.l-btn{
+.l-btn {
     padding: 24px 40px;
     border-radius: 32px;
     font-weight: 700;
 }
 
-.orange-l-btn{
+.orange-l-btn {
     background-color: var(--primary);
     color: var(--white);
     border: 1px solid var(--primary);
     text-transform: uppercase;
     transition: all 400ms ease;
 
-    &:hover{
+    &:hover {
         border: 1px solid var(--primary);
         background-color: var(--white);
         color: var(--primary);
@@ -48,7 +48,7 @@
     }
 }
 
-.black-l-btn{
+.black-l-btn {
     border: 1px solid var(--black);
     color: var(--white);
     background: var(--black);
@@ -57,76 +57,76 @@
     transition: all 400ms ease;
     margin: 24px 0;
 
-    &:hover{
+    &:hover {
         color: var(--black);
         background-color: var(--white);
         cursor: pointer;
     }
 }
 
-.rounded{
+.rounded {
     border-radius: 50%;
 }
 
-.mr-30{
+.mr-30 {
     margin: 30px 0;
 }
 
-.logo-format{
+.logo-format {
     width: 90px;
     height: 90px;
     transition: all 400ms ease;
 
-    &:hover{
-        filter: invert(100%) sepia(66%) saturate(0%) hue-rotate(302deg) brightness(117%) contrast(101%);
+    &:hover {
+        filter: invert(100%) sepia(66%) saturate(0%) hue-rotate(302deg)
+            brightness(117%) contrast(101%);
         cursor: pointer;
     }
 }
 
-.photo-format{
+.photo-format {
     width: 100%;
     padding: 32px;
     transition: all 400ms ease;
 
-    &:hover{
+    &:hover {
         padding: 24px;
     }
 }
 
-.icon-format{
+.icon-format {
     font-size: 2.2rem;
     color: var(--primary);
     margin: 0 8px;
 }
 
-.white-text{
-    color: var(--white)
+.white-text {
+    color: var(--white);
 }
 
-.containerHome{
+.containerHome {
     position: relative;
 }
 
-.orderTop{
+.orderTop {
     position: absolute;
     top: -60px;
 }
 
-.container__content-order{
+.container__content-order {
     display: flex;
     align-items: center;
     background-color: var(--primary);
 }
 
-.order-top{
+.order-top {
     position: absolute;
     z-index: 1;
     border: 1px solid red;
 }
 
-.mg-fix{
+.mg-fix {
     position: absolute;
     top: -65px;
     z-index: 1;
-
 }

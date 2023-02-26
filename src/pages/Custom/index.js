@@ -9,6 +9,7 @@ import {
 import { useEffect, useRef, useState } from 'react';
 import OptionList from './component/OptionList';
 import axios from 'axios';
+import { CartState } from '../../context/Context';
 
 const cx = classNames.bind(styles);
 
@@ -32,6 +33,16 @@ function Custom() {
     const [cheeseList, setCheeseList] = useState([]);
     const [toppingList, setToppingList] = useState([]);
     const [vegetableList, setVegetableList] = useState([]);
+
+    const { dispatch } = CartState();
+
+    function handleDispatch(prod) {
+        alert('Add to cart successfully!');
+        dispatch({
+            type: 'ADD_TO_CART',
+            payload: prod,
+        });
+    }
     const demoSauceList = [
         { Id: 1, name: 'Spicy Red Sauce', price: 3.99 },
         { Id: 2, name: 'Spicy Red Sauce', price: 3.99 },
@@ -63,12 +74,9 @@ function Custom() {
 
     // console.log(selectionCheckboxs);
     useEffect(() => {
-        let newToppings = toppings;
-        newToppings = newToppings.map((tp) => tp.value);
-        let newVegetables = vegetables;
-        newVegetables = newVegetables.map((vg) => vg.value);
-        let newCheeses = cheeses;
-        newCheeses = newCheeses.map((cheese) => cheese.value);
+        let newToppings = toppings.map((tp) => tp.value);
+        let newVegetables = vegetables.map((vg) => vg.value);
+        let newCheeses = cheeses.map((cheese) => cheese.value);
 
         console.log('Sauce: ' + (sauce ? sauce.value : ''));
         console.log('Topping: ' + newToppings);
@@ -280,9 +288,18 @@ function Custom() {
                                 </p>
                                 <p className={cx('menu-item-price')}>12.99$</p>
                                 <button
-                                    className={`${cx('btn')} ${cx('btn-dark')}`}
+                                    className={cx('btn', 'btn-dark')}
+                                    onClick={() => {
+                                        handleDispatch({
+                                            id: 30,
+                                            name: 'Ham & Cheese Pizza',
+                                            price: 12.99,
+                                            image: images.hamAndCheese,
+                                            inStock: 100,
+                                        });
+                                    }}
                                 >
-                                    Buy it!
+                                    Add to cart
                                 </button>
                             </div>
                         </li>
@@ -298,9 +315,18 @@ function Custom() {
                                 </p>
                                 <p className={cx('menu-item-price')}>12.99$</p>
                                 <button
-                                    className={`${cx('btn')} ${cx('btn-dark')}`}
+                                    className={cx('btn', 'btn-dark')}
+                                    onClick={() => {
+                                        handleDispatch({
+                                            id: 31,
+                                            name: 'Margherita Pizza ',
+                                            price: 12.99,
+                                            image: images.margherita,
+                                            inStock: 100,
+                                        });
+                                    }}
                                 >
-                                    Buy it!
+                                    Add to cart
                                 </button>
                             </div>
                         </li>
@@ -316,9 +342,18 @@ function Custom() {
                                 </p>
                                 <p className={cx('menu-item-price')}>12.99$</p>
                                 <button
-                                    className={`${cx('btn')} ${cx('btn-dark')}`}
+                                    className={cx('btn', 'btn-dark')}
+                                    onClick={() => {
+                                        handleDispatch({
+                                            id: 32,
+                                            name: 'Onion Pizza',
+                                            price: 12.99,
+                                            image: images.onion,
+                                            inStock: 100,
+                                        });
+                                    }}
                                 >
-                                    Buy it!
+                                    Add to cart
                                 </button>
                             </div>
                         </li>
@@ -336,9 +371,18 @@ function Custom() {
                                 </p>
                                 <p className={cx('menu-item-price')}>12.99$</p>
                                 <button
-                                    className={`${cx('btn')} ${cx('btn-dark')}`}
+                                    className={cx('btn', 'btn-dark')}
+                                    onClick={() => {
+                                        handleDispatch({
+                                            id: 33,
+                                            name: 'Pepparoni Pizza',
+                                            price: 12.99,
+                                            image: images.pepparoni,
+                                            inStock: 100,
+                                        });
+                                    }}
                                 >
-                                    Buy it!
+                                    Add to cart
                                 </button>
                             </div>
                         </li>
@@ -354,9 +398,18 @@ function Custom() {
                                 </p>
                                 <p className={cx('menu-item-price')}>12.99$</p>
                                 <button
-                                    className={`${cx('btn')} ${cx('btn-dark')}`}
+                                    className={cx('btn', 'btn-dark')}
+                                    onClick={() => {
+                                        handleDispatch({
+                                            id: 34,
+                                            name: 'Vegetarian Pizza',
+                                            price: 12.99,
+                                            image: images.vegetarian,
+                                            inStock: 100,
+                                        });
+                                    }}
                                 >
-                                    Buy it!
+                                    Add to cart
                                 </button>
                             </div>
                         </li>
@@ -372,9 +425,18 @@ function Custom() {
                                 </p>
                                 <p className={cx('menu-item-price')}>12.99$</p>
                                 <button
-                                    className={`${cx('btn')} ${cx('btn-dark')}`}
+                                    className={cx('btn', 'btn-dark')}
+                                    onClick={() => {
+                                        handleDispatch({
+                                            id: 35,
+                                            name: 'Specialty Pizza',
+                                            price: 12.99,
+                                            image: images.specialty,
+                                            inStock: 100,
+                                        });
+                                    }}
                                 >
-                                    Buy it!
+                                    Add to cart
                                 </button>
                             </div>
                         </li>
@@ -392,7 +454,14 @@ function Custom() {
                 />
             </div>
             <div className={cx('custom-content', 'row')}>
-                <div className={cx('custom-product-view', 'col', 'lg-col-6', 'c-12')}>
+                <div
+                    className={cx(
+                        'custom-product-view',
+                        'col',
+                        'lg-col-6',
+                        'c-12',
+                    )}
+                >
                     <img src={images.pizzaBase} alt="" />
                     <div className={cx('pizza-topping')}>
                         {/* -------------------- Chillies Ingredients list ------------------ */}
@@ -982,7 +1051,14 @@ function Custom() {
                     </div>
                 </div>
 
-                <div className={cx('custom-option-view','col', 'lg-col-6', 'c-12')}>
+                <div
+                    className={cx(
+                        'custom-option-view',
+                        'col',
+                        'lg-col-6',
+                        'c-12',
+                    )}
+                >
                     <div className={cx('custom-option-center')}>
                         <h2 className={cx('option-center-heading')}>
                             Customize your own pizza here!
@@ -1025,7 +1101,30 @@ function Custom() {
                 <h2 className={cx('order-info-total')}>
                     Total cost: <span>{totalPrice}</span>$
                 </h2>
-                <button className={cx('order-info-button')}>Order now!</button>
+                <button
+                    className={cx('order-info-button')}
+                    onClick={() => {
+                        let name = 'Custome Pizza| ';
+                        let id = sauce ? sauce.name : '';
+                        cheeses.forEach((cheese) => (id += ',' + cheese.name));
+                        toppings.forEach(
+                            (topping) => (id += ',' + topping.name),
+                        );
+                        vegetables.forEach(
+                            (vegetable) => (id += ',' + vegetable.name),
+                        );
+
+                        handleDispatch({
+                            id: 22,
+                            name: name + id,
+                            price: totalPrice,
+                            image: images.pizzaBase,
+                            inStock: 1,
+                        });
+                    }}
+                >
+                    Add to cart
+                </button>
             </div>
         </div>
     );

@@ -4,17 +4,30 @@ import images from '../../../src/assets/images';
 import Banner from './Banner';
 import Discription from './ContainerContent/Discription/Discription';
 import OurSpeciality from './ContainerContent/OurSpeciality/OurSpeciality';
-
+import { CartState } from '../../context/Context';
 
 const cx = classNames.bind(styles);
 
 function Home() {
+    const {
+        state: { cart },
+        dispatch,
+    } = CartState();
+
+    function handleDispatch(prod) {
+        alert('Add to cart successfully!');
+        dispatch({
+            type: 'ADD_TO_CART',
+            payload: prod,
+        });
+    }
+
     return (
         <div>
             <Banner />
             <div className={cx('containerHome')}>
-                <Discription/>
-                <OurSpeciality/>
+                <Discription />
+                <OurSpeciality />
                 <div className={cx('container__content')}>
                     <div className={cx('container__content-menu')}>
                         <div>
@@ -58,7 +71,7 @@ function Home() {
                                                 'container__content-menu-body-header-list-items',
                                             )}
                                         >
-                                            <a href="" className="m-btn">
+                                            <a href="" className={cx('m-btn')}>
                                                 All
                                             </a>
                                         </div>
@@ -133,7 +146,7 @@ function Home() {
                                         </a>
                                         <h3>
                                             <a href="" className={cx('font16')}>
-                                                Margherita Pizza
+                                                Margherita Pizza 1
                                             </a>
                                         </h3>
                                         <p>
@@ -144,12 +157,27 @@ function Home() {
                                             </a>
                                         </p>
                                         <p>$20.50</p>
+                                        <button
+                                            className={cx('btn', 'btn-primary')}
+                                            onClick={() => {
+                                                handleDispatch({
+                                                    id: 22,
+                                                    name: 'Margherita Pizza 1',
+                                                    price: 20.5,
+                                                    image: images.menu1,
+                                                    inStock: 100,
+                                                });
+                                            }}
+                                        >
+                                            Add to cart
+                                        </button>
                                     </div>
 
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3', 'm-3',
+                                            'lg-col-3',
+                                            'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -166,7 +194,7 @@ function Home() {
                                         </a>
                                         <h3>
                                             <a href="" className={cx('font16')}>
-                                                Margherita Pizza
+                                                Margherita Pizza 2
                                             </a>
                                         </h3>
                                         <p>
@@ -177,12 +205,27 @@ function Home() {
                                             </a>
                                         </p>
                                         <p>$20.50</p>
+                                        <button
+                                            className={cx('btn', 'btn-primary')}
+                                            onClick={() => {
+                                                handleDispatch({
+                                                    id: 23,
+                                                    name: 'Margherita Pizza 2',
+                                                    price: 20.5,
+                                                    image: images.menu2,
+                                                    inStock: 100,
+                                                });
+                                            }}
+                                        >
+                                            Add to cart
+                                        </button>
                                     </div>
 
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3', 'm-3',
+                                            'lg-col-3',
+                                            'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -199,7 +242,7 @@ function Home() {
                                         </a>
                                         <h3>
                                             <a href="" className={cx('font16')}>
-                                                Margherita Pizza
+                                                Margherita Pizza 3
                                             </a>
                                         </h3>
                                         <p>
@@ -210,12 +253,27 @@ function Home() {
                                             </a>
                                         </p>
                                         <p>$20.50</p>
+                                        <button
+                                            className={cx('btn', 'btn-primary')}
+                                            onClick={() => {
+                                                handleDispatch({
+                                                    id: 24,
+                                                    name: 'Margherita Pizza 3',
+                                                    price: 20.5,
+                                                    image: images.menu3,
+                                                    inStock: 100,
+                                                });
+                                            }}
+                                        >
+                                            Add to cart
+                                        </button>
                                     </div>
 
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3', 'm-3',
+                                            'lg-col-3',
+                                            'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -232,7 +290,7 @@ function Home() {
                                         </a>
                                         <h3>
                                             <a href="" className={cx('font16')}>
-                                                Margherita Pizza
+                                                Margherita Pizza 4
                                             </a>
                                         </h3>
                                         <p>
@@ -243,12 +301,27 @@ function Home() {
                                             </a>
                                         </p>
                                         <p>$20.50</p>
+                                        <button
+                                            className={cx('btn', 'btn-primary')}
+                                            onClick={() => {
+                                                handleDispatch({
+                                                    id: 25,
+                                                    name: 'Margherita Pizza 4',
+                                                    price: 20.5,
+                                                    image: images.menu6,
+                                                    inStock: 100,
+                                                });
+                                            }}
+                                        >
+                                            Add to cart
+                                        </button>
                                     </div>
 
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3', 'm-3',
+                                            'lg-col-3',
+                                            'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -265,7 +338,7 @@ function Home() {
                                         </a>
                                         <h3>
                                             <a href="" className={cx('font16')}>
-                                                Margherita Pizza
+                                                Margherita Pizza 5
                                             </a>
                                         </h3>
                                         <p>
@@ -276,12 +349,27 @@ function Home() {
                                             </a>
                                         </p>
                                         <p>$20.50</p>
+                                        <button
+                                            className={cx('btn', 'btn-primary')}
+                                            onClick={() => {
+                                                handleDispatch({
+                                                    id: 26,
+                                                    name: 'Margherita Pizza 5',
+                                                    price: 20.5,
+                                                    image: images.menu7,
+                                                    inStock: 100,
+                                                });
+                                            }}
+                                        >
+                                            Add to cart
+                                        </button>
                                     </div>
 
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3', 'm-3',
+                                            'lg-col-3',
+                                            'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -298,7 +386,7 @@ function Home() {
                                         </a>
                                         <h3>
                                             <a href="" className={cx('font16')}>
-                                                Margherita Pizza
+                                                Margherita Pizza 6
                                             </a>
                                         </h3>
                                         <p>
@@ -309,12 +397,27 @@ function Home() {
                                             </a>
                                         </p>
                                         <p>$20.50</p>
+                                        <button
+                                            className={cx('btn', 'btn-primary')}
+                                            onClick={() => {
+                                                handleDispatch({
+                                                    id: 27,
+                                                    name: 'Margherita Pizza 6',
+                                                    price: 20.5,
+                                                    image: images.menu8,
+                                                    inStock: 100,
+                                                });
+                                            }}
+                                        >
+                                            Add to cart
+                                        </button>
                                     </div>
 
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3', 'm-3',
+                                            'lg-col-3',
+                                            'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -331,7 +434,7 @@ function Home() {
                                         </a>
                                         <h3>
                                             <a href="" className={cx('font16')}>
-                                                Margherita Pizza
+                                                Margherita Pizza 7
                                             </a>
                                         </h3>
                                         <p>
@@ -342,12 +445,27 @@ function Home() {
                                             </a>
                                         </p>
                                         <p>$20.50</p>
+                                        <button
+                                            className={cx('btn', 'btn-primary')}
+                                            onClick={() => {
+                                                handleDispatch({
+                                                    id: 28,
+                                                    name: 'Margherita Pizza 7',
+                                                    price: 20.5,
+                                                    image: images.menu2,
+                                                    inStock: 100,
+                                                });
+                                            }}
+                                        >
+                                            Add to cart
+                                        </button>
                                     </div>
 
                                     <div
                                         className={cx(
                                             'container__content-menu-list-items',
-                                            'lg-col-3', 'm-3',
+                                            'lg-col-3',
+                                            'm-3',
                                             'col',
                                             'c-12',
                                         )}
@@ -364,7 +482,7 @@ function Home() {
                                         </a>
                                         <h3>
                                             <a href="" className={cx('font16')}>
-                                                Margherita Pizza
+                                                Margherita Pizza 8
                                             </a>
                                         </h3>
                                         <p>
@@ -375,6 +493,20 @@ function Home() {
                                             </a>
                                         </p>
                                         <p>$20.50</p>
+                                        <button
+                                            className={cx('btn', 'btn-primary')}
+                                            onClick={() => {
+                                                handleDispatch({
+                                                    id: 29,
+                                                    name: 'Margherita Pizza 8',
+                                                    price: 20.5,
+                                                    image: images.menu1,
+                                                    inStock: 100,
+                                                });
+                                            }}
+                                        >
+                                            Add to cart
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -513,7 +645,7 @@ function Home() {
                                     'container__content-cheft-list',
                                     'text-center',
                                     'row',
-                                    'no-gutters'
+                                    'no-gutters',
                                 )}
                             >
                                 <div
