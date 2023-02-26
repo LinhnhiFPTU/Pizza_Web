@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './Home.module.scss';
-import images from '../../../src/assets/images';
+import images from '../../assets/images';
 import Banner from './Banner';
 import Discription from './ContainerContent/Discription/Discription';
 import OurSpeciality from './ContainerContent/OurSpeciality/OurSpeciality';
@@ -63,7 +63,7 @@ function Home() {
                                 >
                                     <div
                                         className={cx(
-                                            'container__content-menu-body-header-list','row'
+                                            'container__content-menu-body-header-list',
                                         )}
                                     >
                                         <div
@@ -1037,7 +1037,6 @@ function Home() {
                                         'container__content-about-body-label',
                                         'container__content-header',
                                         'mr-30',
-                                        'lg-col-5',
                                         'c-12',
                                     )}
                                 >
@@ -1072,7 +1071,6 @@ function Home() {
                                     className={cx(
                                         'container__content-pizza-photo',
                                         'mr-30',
-                                        'lg-col-6',
                                         'c-12',
                                     )}
                                 >

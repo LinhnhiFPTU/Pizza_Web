@@ -1,8 +1,5 @@
 @import '../../../GlobalStyle/grid.scss';
-
-*{
-    font-size: 13px;
-}
+@import '../Header/hamburger.module.scss';
 
 .user-avt {
     width: 30px;
@@ -43,7 +40,7 @@
     height: 100%;
     display: flex;
     align-items: center;
-    margin-right: 28px;
+    margin-right: 42px;
     cursor: pointer;
 }
 
@@ -70,8 +67,8 @@
 .navbar-list {
     display: flex;
     justify-content: space-around;
-    
 }
+
 .navbar-item {
     position: relative;
     cursor: pointer;
@@ -123,7 +120,6 @@
 .subnav-list {
     list-style: square;
     line-height: 2;
-
 }
 
 .subnav-item {
@@ -169,7 +165,6 @@
 }
 
 .subnav-nav-list {
-    line-height: 90px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -195,7 +190,6 @@
         transition: all 0.25s ease-in;
         border-bottom: 1px solid transparent;
         padding: 8px 0;
-        line-height: 30px;
         &:hover {
             color: var(--primary);
             border-bottom-color: var(--primary);
@@ -272,14 +266,13 @@
         display: none;
     }
     .header-nav {
-        width: 0;
+        display: none;
     }
-
     .header-actions {
-
         justify-content: right;
+        display: none;
         .action-item {
-            padding: 0 4px;
+            padding-right: 32px;
         }
     }
     .header-actions {
@@ -287,11 +280,13 @@
             display: none;
         }
     }
-
 }
 
 @media (min-width: 740px) and (max-width: 1023px) {
     .header-brand-name {
+        display: none;
+    }
+    .header-nav {
         display: none;
     }
     .header-actions {
@@ -300,10 +295,4 @@
             padding: 8px 12px;
         }
     }
-
-
-    .header-nav {
-        width: 0;
-    }
-
 }

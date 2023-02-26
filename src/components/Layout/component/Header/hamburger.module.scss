@@ -1,0 +1,129 @@
+
+
+// -- Mobile
+@media (max-width: 739px){
+  .hidden{
+    display: none !important;
+    color: red !important;
+  }
+}
+
+/* Tablet - PC low resolution */
+@media (min-width: 740px) and (max-width: 1023px) {
+}
+
+/* > PC low resolution */
+@media (min-width: 1024px) and (max-width: 1239px) {
+  
+}
+
+
+.menu__box {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 30px;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 20px 20px;
+  // transform: translate(-100%, 0);
+  transition: all 0.3s ease-in-out;
+
+  list-style: none;
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+  transition-duration: .25s;
+  background-color: white;
+  color: black;
+
+  .header-menu-actions{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    overflow-y: scroll;
+
+    @media (min-width: 740px) and (max-width: 1023px) {
+      display: none;
+    }
+
+    .action-item {
+        padding: 8px 12px;
+    }
+    .user-info{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      margin-right: 10px;
+
+      &-icon{
+        margin-right: 10px;
+        margin-top: 20px;
+      }
+    }
+    .user-avt{
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+
+    }
+  }
+
+  .close-btn{
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .25s ease-in-out;
+    position: fixed;
+  }
+
+  .cart{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+    .action-subnav-item {
+        transition: 0.25s ease-in;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--primary);
+        }
+    }
+
+  .action-item{
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: 0.25s ease-in;
+    color: black;
+  }
+  .navbar-list{
+    display: flex;
+    flex-flow: column nowrap !important;
+    align-items: flex-start;
+    padding: 10px 0;
+    .nav-item{
+      padding: 8px 0;
+      cursor: pointer;
+      transition: 0.25s ease-in;
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+  
+}
+
+.hamburger-menu__btn{
+  display: none;
+
+  @media (max-width: 1023px) {
+    display: block;
+  }
+}
