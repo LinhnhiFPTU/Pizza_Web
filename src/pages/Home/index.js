@@ -1037,9 +1037,6 @@ function Home() {
                                         'container__content-about-body-label',
                                         'container__content-header',
                                         'mr-30',
-                                        'lg-col-6',
-                                        'm-6',
-                                        'col',
                                         'c-12',
                                     )}
                                 >
@@ -1074,9 +1071,6 @@ function Home() {
                                     className={cx(
                                         'container__content-pizza-photo',
                                         'mr-30',
-                                        'lg-col-6',
-                                        'm-6',
-                                        'col',
                                         'c-12',
                                     )}
                                 >

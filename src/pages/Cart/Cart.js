@@ -22,7 +22,15 @@ const Cart = () => {
     }, [cart]);
 
     return (
-        <div className={cx('cart-container')}>
+        <div>
+            <div className={cx('customerHeader')}>
+                <div>
+                    <h2>Cart</h2>
+                    <p>Home / Cart</p>
+                </div>
+            </div>
+            
+            <div className={cx('cart-container')}>
             <div className={cx('product-container')}>
                 <ListGroup>
                     <div className={cx('cart-item')}>
@@ -159,6 +167,7 @@ const Cart = () => {
             >
                 Proceed to Checkout
             </Button>
+        </div>
         </div>
     );
 };

@@ -1,3 +1,27 @@
+.customerHeader{
+    background: url(../../assets/images/blog-9.jpeg) top center / cover no-repeat;
+    padding-top: 25%;
+    color: var(--white);
+    text-align: center;
+    display: flex;
+    position: relative;
+    div{
+      position: absolute;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      top: 0%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      h2{
+        font-size: 40px;
+      }
+    }
+  }
+
+
 .cart-container {
     width: 80%;
     margin: 50px auto;

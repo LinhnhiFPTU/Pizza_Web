@@ -50,6 +50,7 @@ const images = {
     tomatoIngr: require('./ingredients/tomato-ingr.png'),
     oliveIngr: require('./ingredients/olive-ingr.png'),
     aboutUsBanner: require('./blog-7.jpg'),
+    cartImg: require('./blog-9.jpeg'),
     about1: require('./about-1.jpg'),
     signature: require('./signature.png'),
     customer1: require('./customer-1.png'),
