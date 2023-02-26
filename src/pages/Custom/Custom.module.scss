@@ -1,6 +1,11 @@
 @import './responsive.scss';
 @import '../../components/GlobalStyle/grid.scss';
 
+
+@media (min-width: 740px) and (max-width: 1023px) {
+    
+}
+
 .wrapper {
     background: url(../../assets/images/background3.jpg);
     color: var(--white);

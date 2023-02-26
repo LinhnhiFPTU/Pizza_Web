@@ -63,7 +63,7 @@ function Home() {
                                 >
                                     <div
                                         className={cx(
-                                            'container__content-menu-body-header-list',
+                                            'container__content-menu-body-header-list','row'
                                         )}
                                     >
                                         <div
