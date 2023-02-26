@@ -1,10 +1,36 @@
+
+    .flex-box{
+        display: flex;
+        margin: 12px 0;
+    }
+    .center{
+        text-align: center !important;
+        margin: auto;
+    }
+
+
+// -- Mobile
+@media (max-width: 739px){
+    .min{
+        min-width: 0 !important;
+    }
+}
+/* >= Tablet */
+.full-width{
+    width: 100% !important;
+    border: 1px solid red;
+}
+
 .customerHeader{
     background: url(../../assets/images/blog-9.jpeg) top center / cover no-repeat;
-    padding-top: 25%;
+    width: 100%;
+    padding-top: 34%;
     color: var(--white);
     text-align: center;
     display: flex;
     position: relative;
+
+
     div{
       position: absolute;
       display: flex;
@@ -21,9 +47,12 @@
     }
   }
 
+.fontsize15{
+    font-size: 15px !important;
+}
 
 .cart-container {
-    width: 80%;
+    width: 100%;
     margin: 100px auto;
     font-family: 'PT Sans Narrow', sans-serif;
 }
@@ -48,6 +77,11 @@
     text-align: left;
 }
 
+.product-container{
+    width: 80%;
+    margin: auto;
+}
+
 .product-image {
     width: 150px;
     height: fit-content;
@@ -64,7 +98,10 @@
     width: 100px;
 }
 
-.bottom {
+.bottom { 
+    width: 80% !important;
+    margin: auto !important;
+    justify-content: center;
     display: flex;
     justify-content: space-between;
     margin: 30px 0;

@@ -35,7 +35,7 @@ const Cart = () => {
                 <ListGroup>
                     <div className={cx('cart-item')}>
                         <Table bordered>
-                            <thead>
+                            <thead className={cx('full-width')}>
                                 <tr>
                                     <th>Product</th>
                                     <th>Product Name</th>
@@ -45,7 +45,7 @@ const Cart = () => {
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className={cx('full-width')}>
                                 {cart.map((prod) => (
                                     <tr key={prod.id}>
                                         <td className={cx('product-image')}>
@@ -56,7 +56,7 @@ const Cart = () => {
                                                 rounded
                                             />
                                         </td>
-                                        <td className={cx('product-name', 'col-lg-5')}>
+                                        <td className={cx('product-name')}>
                                             <span>{prod.name}</span>
                                         </td>
                                         <td className={cx('product-price')}>
@@ -65,6 +65,7 @@ const Cart = () => {
                                         <td className={cx('product-quantity')}>
                                             <Form.Control
                                                 type="number"
+                                                className={cx('fontsize15')}
                                                 as="select"
                                                 value={'currentValue'}
                                                 onChange={(e) =>
@@ -100,6 +101,7 @@ const Cart = () => {
                                         </td>
                                         <td className={cx('delete-icon')}>
                                             <Button
+                                                className = {cx('min')}
                                                 type="button"
                                                 variant="light"
                                                 onClick={() =>
@@ -120,8 +122,8 @@ const Cart = () => {
                 </ListGroup>
             </div>
 
-            <div className={cx('bottom', 'col-lg-12')}>
-                <div className={cx('col-lg-5', 'shipping-cart')}>
+            <div className={cx('bottom', 'row')}>
+                <div className={cx('col-lg-5', 'shipping-cart', 'c-12')}>
                     <div>ESTIMATE SHIPPING AND TAX</div>
                     <Form.Control className={cx('col-lg-12')} as="select">
                         <option value="">Select Country</option>
@@ -140,7 +142,7 @@ const Cart = () => {
                         </Form.Control>
                     </div>
                 </div>
-                <div className={cx('col-lg-5', 'total-details')}>
+                <div className={cx('col-lg-5', 'total-details', 'c-12')}>
                     <div className={cx('cart-filters')}>
                         <div className={cx('cart-total-header')}>
                             Cart Total
@@ -152,13 +154,15 @@ const Cart = () => {
                     </div>
                 </div>
             </div>
-            <Button
-                className={cx('checkout-button')}
-                type="button"
-                disabled={cart.length === 0}
-            >
-                Proceed to Checkout
-            </Button>
+            <div className={cx('flex-box')}>
+                <Button
+                    className={cx('checkout-button', 'center')}
+                    type="button"
+                    disabled={cart.length === 0}
+                >
+                    Proceed to Checkout
+                </Button>   
+            </div>
         </div>
         </div>
     );

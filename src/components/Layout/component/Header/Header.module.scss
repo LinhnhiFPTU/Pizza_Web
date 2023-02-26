@@ -1,5 +1,9 @@
 @import '../../../GlobalStyle/grid.scss';
 
+*{
+    font-size: 13px;
+}
+
 .user-avt {
     width: 30px;
     height: 30px;
@@ -39,7 +43,7 @@
     height: 100%;
     display: flex;
     align-items: center;
-    margin-right: 42px;
+    margin-right: 28px;
     cursor: pointer;
 }
 
@@ -66,6 +70,7 @@
 .navbar-list {
     display: flex;
     justify-content: space-around;
+    
 }
 .navbar-item {
     position: relative;
@@ -118,6 +123,7 @@
 .subnav-list {
     list-style: square;
     line-height: 2;
+
 }
 
 .subnav-item {
@@ -163,6 +169,7 @@
 }
 
 .subnav-nav-list {
+    line-height: 90px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -188,6 +195,7 @@
         transition: all 0.25s ease-in;
         border-bottom: 1px solid transparent;
         padding: 8px 0;
+        line-height: 30px;
         &:hover {
             color: var(--primary);
             border-bottom-color: var(--primary);
@@ -264,12 +272,14 @@
         display: none;
     }
     .header-nav {
-        display: none;
+        width: 0;
     }
+
     .header-actions {
+
         justify-content: right;
         .action-item {
-            padding-right: 32px;
+            padding: 0 4px;
         }
     }
     .header-actions {
@@ -277,13 +287,11 @@
             display: none;
         }
     }
+
 }
 
 @media (min-width: 740px) and (max-width: 1023px) {
     .header-brand-name {
-        display: none;
-    }
-    .header-nav {
         display: none;
     }
     .header-actions {
@@ -292,4 +300,10 @@
             padding: 8px 12px;
         }
     }
+
+
+    .header-nav {
+        width: 0;
+    }
+
 }

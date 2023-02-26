@@ -26,7 +26,7 @@
     background-image: url(../../assets/images/blog-7.jpg);
     background-position: center;
     background-size: cover;
-    background-blend-mode: color-burn;
+    background-blend-mode: color-burn !important; 
     max-height: 350px;
 }
 
