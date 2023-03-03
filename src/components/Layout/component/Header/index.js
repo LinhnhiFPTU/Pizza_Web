@@ -22,6 +22,7 @@ function Header() {
     const loginAction = useRef();
     const [cookies, setCookie] = useCookies();
     const [isOpen, setIsOpen] = useState(false);
+    const [username,setUsername] = useState();   
 
     // ================================= Handle Scroll Animation =====================================
     function handleScroll(e) {
@@ -38,22 +39,69 @@ function Header() {
         return window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // ======================= Handle Getting User Cookie ==========================================
-    // useEffect(() => {
-    //     if (cookies['.AspNetCore.Cookies'] === undefined) {
-    //         userAction.current.classList.add(cx('hidden'));
-    //         loginAction.current.classList.remove(cx('hidden'));
-    //     } else {
-    //         userAction.current.classList.remove(cx('hidden'));
-    //         loginAction.current.classList.add(cx('hidden'));
-    //     }
-    // }, [cookies]);
+      // ======================= Handle Getting User Cookie ==========================================
+      useEffect(() => {
+        
+        // if (cookies['.AspNetCore.Cookies'] === undefined) {
+        //     userAction.current.classList.add(cx('hidden'));
+        //     loginAction.current.classList.remove(cx('hidden'));
+        // } else {
+        //     userAction.current.classList.remove(cx('hidden'));
+        //     loginAction.current.classList.add(cx('hidden'));
+        // }
+               
+        const requestOptions1 = {
+                method:'GET',
+                credentials:'include',
+                headers:{'Content-Type': 'application/json' ,
+                    'Accept': 'application/json, text/plain, */*'},                                
+                
+            }
+        
+            fetch('https://localhost:7072/Pizzon/Login',requestOptions1)
+            .then(response =>            
+                response.json()    //THIS LINE MUST BE SEPARATED FROM OTHERS!        
+             ).then(data => {            
+                if(data.Username ===undefined || data.Email === undefined)   {
+                    userAction.current.classList.add(cx('hidden'));
+                    console.log("ya must log in!")
+                    loginAction.current.classList.remove(cx('hidden'));                                    
+                }else{                                        
+                                    
+                    userAction.current.classList.remove(cx('hidden'));
+                    loginAction.current.classList.add(cx('hidden'));
+                    console.log("current data: "+data.Username)
+                    setUsername("Hello "+data.Username)
+                }
+             })                              
+            }                                                                              
+        ,[cookies]    
+    
+    )
+
+    const requestOptions2 = {
+        method:'POST',
+        credentials:'include',
+        headers:{'Content-Type': 'application/json' ,
+            'Accept': 'application/json, text/plain, */*'},                                
+        
+    }
+    const handleLogout = (e) =>{ 
+        e.preventDefault();
+        fetch('https://localhost:7072/Pizzon/Logout',requestOptions2)
+            .then(response => response.json()) 
+        
+        window.location.href = "/"
+             
+           
+    }
 
     const handleOpen = () => {
         setIsOpen(!isOpen);
     }
-    return (
+    return (        
         <div ref={headerWrapper} className={cx('wrapper')}>
+            <base href="/" />
             <header className={cx('header', 'row')}>
                 <div className={cx('header-brand')}>
                     <img src={images.logo} alt="DSC Pizza"></img>
@@ -383,7 +431,7 @@ function Header() {
                             alt="avatar"
                             className={cx('user-avt')}
                         />
-                        <p className={cx('user-username')}>Username</p>
+                        <p className={cx('user-username')}>{username}</p>
                         <ul className={cx('action-subnav-list', 'subnav')}>
                             <li className={cx('action-subnav-item')}>
                                 About me
@@ -399,11 +447,12 @@ function Header() {
                                     icon={faRightToBracket}
                                 />
                             </li>
-                            <li className={cx('action-subnav-item')}>
+                            <li className={cx('action-subnav-item')} onClick={handleLogout}>
                                 Log out
                                 <FontAwesomeIcon
                                     className={cx('user-info-icon')}
                                     icon={faRightFromBracket}
+
                                 />
                             </li>
                         </ul>

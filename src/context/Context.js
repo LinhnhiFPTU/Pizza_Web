@@ -5,7 +5,7 @@ import images from '../assets/images';
 const Cart = createContext();
 
 const Context = ({ children }) => {
-    const products = [...Array(20)].map((curr, i) => ({
+    const products = [...Array(0)].map((curr, i) => ({
         id: i,
         name: 'Product name',
         price: 2,
@@ -13,7 +13,7 @@ const Context = ({ children }) => {
         inStock: 100,
     }));
 
-    const cart = [...Array(10)].map((curr, i) => ({
+    const cart = [...Array(0)].map((curr, i) => ({
         id: i,
         name: 'Product name',
         price: i + 10,

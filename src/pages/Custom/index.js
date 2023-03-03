@@ -1072,25 +1072,25 @@ function Custom() {
                     <div className={cx('option-selection')}>
                         {/* ------------------------- Sauce Selection Section ------------------------- */}
                         <OptionList
-                            optionList={demoSauceList}
+                            optionList={sauceList}
                             type="Sauce"
                             handleClick={handleSauceClick}
                         />
                         {/* ------------------------- Cheese Selection Section ------------------------- */}
                         <OptionList
                             type="Cheese"
-                            optionList={demoCheeseList}
+                            optionList={cheeseList}
                             handleClick={handleCheeseClick}
                         />
                         {/* ------------------------- Topping Selection Section ------------------------- */}
                         <OptionList
-                            optionList={demoToppingList}
+                            optionList={toppingList}
                             type="Topping"
                             handleClick={handleToppingClick}
                         />
                         {/* ------------------------- Vegetable Selection Section ------------------------- */}
                         <OptionList
-                            optionList={demoVegetableList}
+                            optionList={vegetableList}
                             type="Vegetable"
                             handleClick={handleVegetableClick}
                         />

@@ -1,9 +1,66 @@
+import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Login.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import {useState} from 'react';
+
+
+
+
 
 const cx = classNames.bind(styles);
+
 function Login() {
+    const navi = useNavigate();            
+    const [username,setUserName] = useState("");
+    const onUsernameChange = event => {
+        setUserName(event.target.value);
+    }
+    const [email,setEmail] = useState("");
+    const onEmailChange = event => {
+        setEmail(event.target.value);
+    }
+    const [password,setPassword] = useState("");
+    const onPasswordChange = event => {
+        setPassword(event.target.value);
+    }
+    const handlePost = ()=>{        
+
+        const loginInfo = {"username":username,"email":email,"password":password};
+        const requestOptions = {
+            method:'POST',
+            credentials:'include',
+            headers:{'Content-Type': 'application/json' ,
+                'Accept': 'application/json, text/plain, */*'},
+            
+            
+            body:JSON.stringify(loginInfo),
+            
+        }
+        fetch('https://localhost:7072/Pizzon/Login',requestOptions).then(response => {                         
+            if(!response.ok){
+                alert("Incorrect sign-in credentials, or user doesn't exist!");                     
+                navi("/login");
+                
+            }else {                                  
+                alert("Successfully logged in!");                                                
+                navi("/");
+                
+            }
+            return response.json();                                                          
+                              
+        })
+        .then(value => {console.log(value)})
+        .catch(error => {
+            this.setState({errorMessage:error.toString()});
+            console.error('There was an error!',error);
+        });
+
+    }
+    const buttonClick = () => {    
+        handlePost();
+    }
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('login-content')}>
@@ -24,6 +81,8 @@ function Login() {
                             className={cx('form-group-input')}
                             type="text"
                             required
+                            onChange={onUsernameChange}
+                            value={username}
                         />
                     </div>
                     <div className={cx('form-group')}>
@@ -32,6 +91,8 @@ function Login() {
                             className={cx('form-group-input')}
                             type="text"
                             required
+                            onChange={onEmailChange}
+                            value={email}
                         />
                     </div>
                     <div className={cx('form-group')}>
@@ -42,9 +103,12 @@ function Login() {
                             className={cx('form-group-input')}
                             type="password"
                             required
+                            onChange={onPasswordChange}
+                            value={password}
                         />
                     </div>
-                    <button className={cx('form-group-button')}>Sign In</button>
+                    <button type="button" className={cx('form-group-button')} onClick={buttonClick}>Sign In</button>
+
                     <div className={cx('form-redirect')}>
                         <span>New here? </span>
                         <Link to="/register" className={cx('redirect-link')}>
